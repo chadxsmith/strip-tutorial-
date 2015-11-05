@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var j = jQuery.noConflict();
+
+console.log("testinnnnng")
+j(document).ready(function(){
+
+  j('.bxslider').bxSlider({
+  	auto: true
+  });
+
+  j('.drawer').drawer();
+  console.log("hello")
+
+});

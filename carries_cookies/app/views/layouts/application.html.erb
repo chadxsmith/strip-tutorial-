@@ -1,12 +1,608 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8" />
   <title>CarriesCookies</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ 
+ 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta charset="UTF-8" />
+
+
+
+
+
+
+
+     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic,700,300italic' rel='stylesheet' type='text/css'>
+
+	    <!-- Latest compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<!-- Optional theme -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  	<!-- Latest compiled and minified JavaScript -->
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+
+
 </head>
 <body>
+
+
+	<div class="hero-section">
+
+			<div class='container'>
+					<div class='row'>
+						<div class='col-md-12'>
+
+							<img src="/assets/logo.png" class="logo" >
+						</div> <!-- end of col-md-12 -->
+					</div> <!-- end of row -->
+
+					<div class="row headlineHero_section"> 
+					
+						<div class='col-md-6'>
+							<h1 class="test_headline">
+								<span>The easiest way to book artist travel and lodging. </span>
+				
+							</h1>
+							 <button type="button" class="btn">Get Started</button>
+						</div> <!-- end of col-md-6 -->
+
+						<div class='col-md-5'>
+								<img class="illustration" src="/assets/teaser_illustration.png">
+						</div> <!-- end of col-md-8 -->						
+
+					</div> <!-- end of row -->
+
+		    </div> <!-- end of container -->
+
+    </div> <!-- end of hero-section -->
+
+
+    <div class="how-section">
+
+    	<div class="container">
+
+
+			    		<div class="row">
+				    		<h1 class="description">
+				    			<span class="header">Easy as 1, 2, 3</span>
+				    			<span class="subheader">Eliminate endless emails </span>
+				    			<span class="body">Think of us personal planning team, focused on removing the
+								<span class="body">back and forth commnication required  to scheduled and</span>
+								<span class="body">communicate artist's travel schedule</span>
+				    		</h1> <!-- end of description -->
+			    		</div> <!-- end of row -->
+
+			 <div class="row">
+
+    			<div class="col-md-4">
+
+			    		<div class='row'>
+			    			<div class="col-md-12">
+				    				
+			    				<div class="content-grouper">
+
+				    				<img src="/assets/writeIllustration.png">
+				    				<h3 class="step">
+				    					<span class="number">1.</span>
+				    					<span class="label">Select a plan</span>
+				    				</h3>
+				    				<p class="context">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+				    			</div>
+
+				    		</div><!-- end of col-md-12 -->
+			    		</div> <!-- end of row -->
+
+			   	 </div> <!-- end of col-md-4 -->
+
+
+    			<div class="col-md-4">
+
+			    		<div class='row'>
+			    			<div class="col-md-12">
+				    				
+			    				<div class="content-grouper">
+
+				    				<img src="/assets/writeIllustration.png">
+				    				<h3 class="step">
+				    					<span class="number">2.</span>
+				    					<span class="label">Enter artist's info</span>
+				    				</h3>
+				    				<p class="context">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+				    			</div>
+
+				    		</div><!-- end of col-md-12 -->
+			    		</div> <!-- end of row -->
+
+			   	 </div> <!-- end of col-md-4 -->
+
+
+    			<div class="col-md-4">
+
+			    		<div class='row'>
+			    			<div class="col-md-12">
+				    				
+			    				<div class="content-grouper">
+
+				    				<img src="/assets/writeIllustration.png">
+				    				<h3 class="step">
+				    					<span class="number">3.</span>
+				    					<span class="label">Submit show date</span>
+				    				</h3>
+				    				<p class="context">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+				    			</div>
+
+				    		</div><!-- end of col-md-12 -->
+			    		</div> <!-- end of row -->
+
+			   	 </div> <!-- end of col-md-4 -->
+
+			
+
+			</div> <!-- end of row -->
+
+
+     	</div> <!-- end of container -->
+
+
+    </div><!-- end of how-section -->
+
+    <div class="divider">
+
+			<div class="container">
+
+				<div class="callToAction">
+
+						<button type="button" class="btn">Get Started</button>
+
+				</div>
+
+
+			</div><!-- end of container -->    		
+
+
+    </div><!-- end of how-section -->
+
+
+    <div class="why-section">
+
+			    		<div class="row">
+				    		<h1 class="description">
+				    			<span class="header_alt">Crowdsurfer makes life easier</span>
+				    			<span class="subheader">Taking one task off your busy schedule</span>
+				    			<span class="body_2">The larger the event, the more time spent on planning.</span>
+								<span class="body_2"> Let us worry about getting artists from Point A to B safely</span>
+								<span class="body_2"> and efficiently</span>
+				    		</h1> <!-- end of description
+			    		<!-- </div>  --><!-- end of row --> 
+    <div class="container">
+
+<!-- -->
+
+          <div class="row">
+
+
+              <div class="col-md-5">
+
+                <div class="row">
+
+
+                        <div class="col-md-1">
+
+                            <img class="confirmation" src="http://bitballoon.scdn4.secure.raxcdn.com/b673e396f10f2b14504b23c145cfad489a702e96/5eeba/images/placeholder.png">
+
+                        </div>
+
+                        <div class="col-md-8 reason-left reason-left-one">
+
+                             <div class="reason-one">
+
+                             <p class="reason-header_one"><span class="emphasis">Save time on answering planning emails</span></p>
+                             <p class="reason-subheader_one">Email can devour anyone’s day. Our team ensures you’re spending more time focused on the show, and not sending out itineraries</p>
+
+                             </div><!-- end of reason-one -->
+
+                        </div> <!-- end of col-md-8 -->
+
+
+                </div> <!-- end of row -->
+
+
+                <div class="row">
+
+
+                        <div class="col-md-1">
+
+                            <img class="headache" src="http://bitballoon.scdn4.secure.raxcdn.com/b673e396f10f2b14504b23c145cfad489a702e96/5eeba/images/placeholder.png">
+
+                        </div>
+
+                        <div class="col-md-8 reason-left reason-left-three">
+
+                             <div class="reason-three">
+
+                             <p class="reason-header_one"><span class="emphasis">Remove Touring Headaches</span></p>
+                             <p class="reason-subheader_one">Staying on top of touring logistics is a hassle! Our team sends personal reminders to ensure the talent never misses flights or check-in time </p>
+
+                             </div><!-- end of reason-one -->
+
+                        </div> <!-- end of col-md-8 -->
+
+
+                </div> <!-- end of row -->
+
+
+              </div> <!-- end of col-md-5 -->
+
+
+
+
+
+
+              <div class="col-md-1">
+
+                <img class="tree" src="http://bitballoon.scdn4.secure.raxcdn.com/65c5553cb0b904b7fe4c52ee8f0f44f970c2f014/2024d/images/tree.png">
+
+              </div>
+
+
+                      <img class="mobile-users-icon" src="http://bitballoon.scdn4.secure.raxcdn.com/b673e396f10f2b14504b23c145cfad489a702e96/5eeba/images/placeholder.png">
+
+
+              <div class="col-md-5">
+
+                <div class="row">
+
+
+                        <div class="col-md-11 reason-right reason-right-two">
+
+                             <div class="reason-two">
+
+                             <p class="reason-header_one"><span class="emphasis">Increase time spent promoting shows</span></p>
+                             <p class="reason-subheader_one">Double or triple your time spent marketing shows by allowing our team to manage the event’s travel scheduling needs</p>
+
+                             </div><!-- end of reason-one -->
+
+                        </div> <!-- end of col-md-8 -->    
+
+
+
+                      <div class="col-md-1">
+
+                            <img class="confirmation-2a" src="http://bitballoon.scdn4.secure.raxcdn.com/b673e396f10f2b14504b23c145cfad489a702e96/5eeba/images/placeholder.png">
+
+                      </div>                     
+
+
+                </div> <!-- end of row -->
+
+
+              </div> <!-- end of col-md-5 -->
+
+
+              <img class="mobile-wallet-icon" src="http://bitballoon.scdn4.secure.raxcdn.com/b673e396f10f2b14504b23c145cfad489a702e96/5eeba/images/placeholder.png">
+
+
+              <div class="col-md-5">
+
+                <div class="row">
+
+
+                        <div class="col-md-11 reason-right reason-right-four">
+
+                             <div class="reason-four">
+
+                             <p class="reason-header_one"><span class="emphasis">Decrease stress levels</span></p>
+                             <p class="reason-subheader_one">Staying on top of touring logistics is a hassle! Our team sends reminders to ensure artists never misses flights or check-in time</p>
+
+                             </div><!-- end of reason-one -->
+
+                        </div> <!-- end of col-md-8 -->    
+
+
+
+                      <div class="col-md-1">
+
+                            <img class="confirmation-2" src="http://bitballoon.scdn4.secure.raxcdn.com/b673e396f10f2b14504b23c145cfad489a702e96/5eeba/images/placeholder.png">
+
+                      </div>                     
+
+
+                </div> <!-- end of row -->
+
+
+              </div> <!-- end of col-md-5 -->
+
+
+          </div> <!-- end of row -->
+
+      </div> <!-- end of container -->
+
+
+
+    </div><!-- end of why-section -->
+
+    <div class="divider">
+
+			<div class="container">
+
+				<div class="callToAction">
+
+						<button type="button" class="btn">Get Started</button>
+
+				</div>
+
+
+			</div><!-- end of container -->    		
+
+
+    </div><!-- end of how-section -->
+
+
+    <div class="recent_customers">
+
+
+			    		<div class="row">
+				    		<h1 class="description">
+				    			<span class="subheader">Recent Customers</span>
+				    			<span class="body_3">Read what others are saying our service, and how</span>
+								<span class="body_3">we're improving the show planning experience</span>
+				    		</h1> <!-- end of description
+			    		<!-- </div>  --><!-- end of row --> 
+
+         
+
+      <div class="container">
+
+
+          <div class="testimony-area">
+
+                <ul id="slider" class="bxslider">
+                    <li class="">
+                        <p class="quote_text"> 
+                            Crowdsurfer’s team has a strong passion for making travel logistics as simple as possible. They are constantly listening to venues and promoters needs and have developed a valuable business to help us better manage complexity and costs
+                             
+                        </p></br>
+
+                       <span class="user_infos">
+                            <span class="user_pic">
+                                <img class="pic-circle-corner" src="/assets/placeholder.png" alt="">
+                            </span>
+                            <span class="user_infos">
+                                <span class="user_title">
+                                    Promoter 
+                                </span><br/>
+                                <span class="user_poste">
+                                    Chicago, IL 
+                                </span>
+                            </span>
+                        </span>        
+                    </li>
+
+                    <li class="">
+                        <p> 
+                            I personally can’t wait to work with Crowdsurfer. I don’t see a better option for promoters looking to bring big artists to their town 
+                             
+                        </p></br>
+
+                       <span class="user_infos">
+                            <span class="user_pic">
+                                <img class="pic-circle-corner" src="/assets/placeholder.png" alt="">
+                            </span>
+                            <span class="user_infos">
+                                <span class="user_title">
+                                    Promoter
+                                </span><br/>
+                                <span class="user_poste">
+                                    Washington, DC
+                                </span>
+                            </span>
+                        </span>        
+                   
+                     </li>  
+
+
+                    <li class="">
+                        <p> 
+                            Crowdsurfer has made one of the best efforts I have seen to bring efficiency to throwing great shows
+                             
+                        </p></br>
+
+                       <span class="user_infos">
+                            <span class="user_pic">
+                                <img class="pic-circle-corner" src="/assets/placeholder.png" alt="">
+                            </span>
+                            <span class="user_infos">
+                                <span class="user_title">
+                                    Promoter 
+                                </span><br/>
+                                <span class="user_poste">
+                                    Brooklyn, NY
+                                </span>
+                            </span>
+                        </span>        
+                   
+                     </li>                       
+
+
+
+
+                    <li class="">
+                        <p> 
+                            It’s idea like this that will improve the touring experience and allow us to grow without enduring unneeded headaches 
+                             
+                        </p></br>
+
+                       <span class="user_infos">
+                            <span class="user_pic">
+                                <img class="pic-circle-corner" src="/assets/placeholder.png" alt="">
+                            </span>
+                            <span class="user_infos">
+                                <span class="user_title">
+                                    LAKIM
+                                </span><br/>
+                                <span class="user_poste">
+                                    Los Angeles, CA
+                                </span>
+                            </span>
+                        </span>        
+                   
+                     </li>                       
+
+
+                   </ul>
+
+          </div><!-- end of testimony-area -->
+
+
+      </div><!-- end of container -->
+
+
+    </div>
+
+     <div class="divider">
+
+			<div class="container">
+
+				<div class="callToAction2">
+
+						<button type="button" class="btn">Get Started</button>
+
+				</div>
+
+
+			</div><!-- end of container -->    		
+
+
+    </div><!-- end of how-section -->
+   
+    <div class="purchase-section">
+			    		<div class="row">
+				    		<h1 class="description">
+				    			<span class="subheader">Pricing</span>
+				    			<span class="body_2">The larger the event, the more time spent on planning.</span>
+								<span class="body_2"> Let us worry about getting artists from Point A to B safely</span>
+								<span class="body_2"> and efficiently</span>
+				    		</h1> <!-- end of description
+			    		<!-- </div>  --><!-- end of row --> 
+
+              <div class="container">
+
+
+              <div class="cd-pricing-container cd-has-margins">
+
+                    <ul class="cd-pricing-list">
+                      <li>
+                        <header class="cd-pricing-header">
+                          <h2>Basic</h2>
+
+                          <div class="cd-price">
+                            <span class="cd-currency">$</span>
+                            <span class="cd-value">30</span>
+                            <span class="cd-duration">per show</span>
+                          </div>
+                        </header> <!-- .cd-pricing-header -->
+
+                        <div class="cd-pricing-body">
+                          <ul class="cd-pricing-features">
+                            <li><em>3</em> Booked Transportation Tickets</li>
+                            <li><em>3</em> Booked Lodging Accommodations </li>
+                            <li><em>24/7</em> Customer Support</li>
+                          </ul>
+                        </div> <!-- .cd-pricing-body -->
+
+                        <footer class="cd-pricing-footer">
+                          <a class="cd-select" href="#">Get Started</a>
+                        </footer> <!-- .cd-pricing-footer -->
+                      </li>
+                      <li class="cd-popular">
+                        <header class="cd-pricing-header">
+                          <h2>Popular</h2>
+
+                          <div class="cd-price">
+                            <span class="cd-currency">$</span>
+                            <span class="cd-value">60</span>
+                            <span class="cd-duration">per show</span>
+                          </div>
+                        </header> <!-- .cd-pricing-header -->
+
+                        <div class="cd-pricing-body">
+                          <ul class="cd-pricing-features">
+                            <li><em>6</em> Booked Transportation Tickets</li>
+                            <li><em>6</em> Booked Lodging Accommodations</li>
+                            <li><em>24/7</em> Customer Support</li>
+                          </ul>
+                        </div> <!-- .cd-pricing-body -->
+
+                        <footer class="cd-pricing-footer">
+                        	<div class="color_background">
+                          		<a class="cd-select" href="#">Get Started</a>
+                          	</div>
+                        </footer> <!-- .cd-pricing-footer -->
+                      </li>
+                      <li>
+                        <header class="cd-pricing-header">
+                          <h2>Premier</h2>
+
+                          <div class="cd-price">
+                            <span class="cd-currency">$</span>
+                            <span class="cd-value">90</span>
+                            <span class="cd-duration">per show</span>
+                          </div>
+                        </header> <!-- .cd-pricing-header -->
+
+                        <div class="cd-pricing-body">
+                          <ul class="cd-pricing-features">
+                            <li><em>9</em> Booked Transportation Tickets</li>
+                            <li><em>9</em> Booked Lodging Accommodations</li>
+                            <li><em>24/7</em> Customer Support</li>
+                          </ul>
+                        </div> <!-- .cd-pricing-body -->
+
+                        <footer class="cd-pricing-footer">
+                          <a class="cd-select" href="#">Get Started</a>
+                        </footer>  <!-- .cd-pricing-footer -->
+                      </li>
+                    </ul> <!-- .cd-pricing-list -->
+                  </div> <!-- .cd-pricing-container -->
+
+              </div>
+
+
+    </div><!-- end of purchase-section -->
+
+    <div class="divider">
+
+			<div class="container">
+
+				<div class="footerSection">
+						<ul class="footerList">
+							<li class="locationBuild">Made with <i class="fa fa-heart fa-lg"></i> in DC</li>
+							<li class="otherOptions">Terms of Service</li>
+							<li class="otherOptions">Privacy Policy</li>
+							<li class="otherOptions">Contact</li>
+							<li class="otherOptions">Feedback</li>
+						</ul>
+
+				</div>
+
+
+			</div><!-- end of container -->    		
+
+
+    </div><!-- end of how-section -->
 
 <%= yield %>
 
