@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require fancybox
  *= require_self
  */
 
@@ -489,7 +490,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
     height:37px;
     display: inline-block;
     *zoom:1;
-    background: url(images/appostrophr_right.png) no-repeat center center transparent;
+    background: url(/assets/appostrophr_right.png) no-repeat center center transparent;
 }
 .testimony-area p:before{
     content: '';
@@ -500,7 +501,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
     height:37px;
     display: inline-block;
     *zoom:1;
-    background: url(images/appostrophr_left.png) no-repeat center center transparent;
+    background: url(/assets/appostrophr_left.png) no-repeat center center transparent;
 }
 
 
