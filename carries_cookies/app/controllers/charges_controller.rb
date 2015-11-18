@@ -4,6 +4,9 @@ class ChargesController < ApplicationController
 	def new
 	end
 
+	def show
+	end
+
 	def create
 	  # Amount in cents
 	  @amount = 500
@@ -24,7 +27,6 @@ class ChargesController < ApplicationController
 	  flash[:error] = e.message
 	  redirect_to charges_path
 	end
-
 
 
 end

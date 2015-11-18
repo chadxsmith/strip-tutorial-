@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'example/show'
+
     root "charges#new", page: "home"
     # resources :charges
   # The priority is based upon order of creation: first created -> highest priority.
