@@ -19,9 +19,13 @@
 $(document).ready(function() {
 
 
-$(".fancybox").fancybox().animate({ scrollTop: 0 }, 'slow');
+$(".fancybox").fancybox();
 
-
+$('#terms_footer').click(function(){
+	console.log("terms has been clicked")
+    $("html, body").animate({ scrollTop: 0 }, 200);
+    return false;
+ });
 
    $('.bxslider').bxSlider({
   	auto: true

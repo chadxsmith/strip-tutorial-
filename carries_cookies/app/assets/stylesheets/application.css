@@ -16,9 +16,9 @@
  */
 
 
-
-
-
+#fancybox-wrap {
+    top: 100px !important;
+}
 
 body{
 	font-family: 'Roboto'
@@ -177,6 +177,9 @@ body{
 }
 .step_three{
 	margin-right:-7%;
+}
+#content-div{
+	border: 10px solid white;
 }
 ------------------------------------------------------------------------------------------------*/
 
