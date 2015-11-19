@@ -27,6 +27,12 @@ $('#terms_footer').click(function(){
     return false;
  });
 
+$('#privacy_footer').click(function(){
+	console.log("privacy has been clicked")
+    $("html, body").animate({ scrollTop: 0 }, 200);
+    return false;
+ });
+
    $('.bxslider').bxSlider({
   	auto: true
   });

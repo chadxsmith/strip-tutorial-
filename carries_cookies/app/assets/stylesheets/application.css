@@ -181,6 +181,18 @@ body{
 #content-div{
 	border: 10px solid white;
 }
+.description_alt > a{ 
+    color: #303030;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 56px;
+    pointer-events: none;
+   	cursor: default;
+ }
+
+.description > .body_2{
+	margin-top: 27px;
+}
 ------------------------------------------------------------------------------------------------*/
 
 .header{
