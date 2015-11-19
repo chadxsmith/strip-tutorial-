@@ -685,6 +685,10 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 	text-align: left;
 }
 
+.description_alt > a{
+	font-size: 81%;	
+}
+
 
 .description > .subheader{
 	font-size: 81%;
