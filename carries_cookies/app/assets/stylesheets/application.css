@@ -15,13 +15,7 @@
  *= require fancybox
  */
 
-.stripe-button-el{
-	display: none;
-}
 
-#fancybox-wrap {
-    top: 100px !important;
-}
 
 body{
 	font-family: 'Roboto'
@@ -197,13 +191,18 @@ body{
 	margin-top: 27px;
 }
 
-.stripe-button >  span{
-	content: "dfafadfd"
+
+.cd-select{
+	width: 100%;
 }
 
-/*.stripe-button-el:after{
-	content: 'Get Started';
-}*/
+button{
+	border: none;
+}
+#fancybox-wrap {
+    top: 100px !important;
+}
+
 
 ------------------------------------------------------------------------------------------------*/
 

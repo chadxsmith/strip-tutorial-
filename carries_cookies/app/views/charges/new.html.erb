@@ -22,7 +22,20 @@
                         </div> <!-- .cd-pricing-body -->
 
                         <footer class="cd-pricing-footer">
-                          <a class="cd-select" href="#">Get Started</a>
+                          <%= form_tag(charges_path) do %> 
+                                     
+                                      <button class="cd-select">Get Started</button>
+
+                                      <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
+                                             
+                                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                              data-description="A month's subscription"
+                                              panelLabel: "Subscribe"
+                                              data-amount="3000"
+                                              data-locale="auto">
+                                      </script>
+                                                      
+                            <% end %>     
                         </footer> <!-- .cd-pricing-footer -->
                       </li>
                       <li class="cd-popular">
@@ -45,9 +58,22 @@
                         </div> <!-- .cd-pricing-body -->
 
                         <footer class="cd-pricing-footer">
-                          <div class="color_background">
-                              <a class="cd-select" href="#">Get Started</a>
-                            </div>
+                          <div class="color_background">            
+                              <%= form_tag(charges_path) do %> 
+                                     
+                                      <button class="cd-select">Get Started</button>
+
+                                      <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
+                                             
+                                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                              data-description="A month's subscription"
+                                              panelLabel: "Subscribe"
+                                              data-amount="6000"
+                                              data-locale="auto">
+                                      </script>
+                                                      
+                                <% end %>                       
+                         </div>
                         </footer> <!-- .cd-pricing-footer -->
                       </li>
                       <li>
@@ -73,9 +99,7 @@
 
                         <%= form_tag(charges_path) do %> 
                              
-
-                               <button id="customButton" class="btn btn-large btn-primary">Get Started</button>
-                               <%#= link_to 'Get Started', charges_path, class: "btn btn-large btn-primary", method: :post, id: 'customButton' %>
+                              <button class="cd-select">Get Started</button>
 
                               <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                      
@@ -85,9 +109,6 @@
                                       data-amount="9000"
                                       data-locale="auto">
                               </script>
-
-
-        
                                               
                         <% end %>
 
