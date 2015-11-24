@@ -38,3 +38,8 @@ $('#privacy_footer').click(function(){
   });
 
 });
+
+
+function disappearElement(){
+	$('.stripe-button-el').hide();
+}

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   # get 'example/show'
 
     root "charges#new", page: "home"
-    # resources :charges
+
+    resources :charges, only: [:create, :new]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

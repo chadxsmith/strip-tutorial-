@@ -13,6 +13,8 @@ class ChargesController < ApplicationController
 	    :card  => params[:stripeToken]
 	  )
 
+	  
+	  # binding.pry
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
 	    :amount      => @amount,
@@ -24,6 +26,5 @@ class ChargesController < ApplicationController
 	  flash[:error] = e.message
 	  redirect_to charges_path
 	end
-
-
+# end
 end

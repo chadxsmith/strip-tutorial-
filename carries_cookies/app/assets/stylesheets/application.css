@@ -15,6 +15,9 @@
  *= require fancybox
  */
 
+.stripe-button-el{
+	display: none;
+}
 
 #fancybox-wrap {
     top: 100px !important;
@@ -193,6 +196,15 @@ body{
 .description > .body_2{
 	margin-top: 27px;
 }
+
+.stripe-button >  span{
+	content: "dfafadfd"
+}
+
+/*.stripe-button-el:after{
+	content: 'Get Started';
+}*/
+
 ------------------------------------------------------------------------------------------------*/
 
 .header{
