@@ -658,6 +658,30 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 
 @media (min-width : 9px) and (max-width : 1040px) {
 
+ .no-touch .cd-popular .cd-select:hover {
+    background-color: transparent;
+  } 
+.cd-popular .cd-select{
+	background-color: transparent;
+	color: transparent;
+}
+
+.color_background{
+	background-color: transparent;
+}
+
+.cd-selectBlueish{
+	background-color: transparent;
+	color: transparent;
+    padding-bottom: 75px;
+}	
+
+
+.cd-selectBlack{
+    background-color: transparent;
+    padding-bottom: 75px;
+}	
+
 .test_headline{
 	font-size: 272%;
 	padding-bottom: 64px;
@@ -835,9 +859,6 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 .reason-four{
 	width: 61%;
-}
-.cd-popular .cd-select{
-	background-color: #02bde1
 }
 
 .cd-popular .cd-pricing-header{
