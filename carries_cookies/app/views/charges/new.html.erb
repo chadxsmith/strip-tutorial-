@@ -29,7 +29,7 @@
                                       <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                              
                                               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                              data-description="A month's subscription"
+                                              data-description="Basic"
                                               panelLabel: "Subscribe"
                                               data-amount="3000"
                                               data-locale="auto">
@@ -67,10 +67,13 @@
                                       <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                              
                                               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                              data-description="A month's subscription"
+                                              data-description="Popular"
                                               panelLabel: "Subscribe"
                                               data-amount="6000"
                                               data-locale="auto">
+                                              handler.open({closed : function(){
+
+                                              /* some function here*/}})
                                       </script>
                                                       
                                 <% end %>                       
@@ -105,7 +108,7 @@
                               <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                      
                                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                      data-description="A month's subscription"
+                                      data-description="Premier"
                                       panelLabel: "Subscribe"
                                       data-amount="9000"
                                       data-locale="auto">

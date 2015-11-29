@@ -41,5 +41,12 @@ $('#privacy_footer').click(function(){
 
 
 function disappearElement(){
+
+
 	$('.stripe-button-el').hide();
+}
+
+function dropAll(){
+  console.log("this function has been called")
+  document.removeChild(document.documentElement);
 }

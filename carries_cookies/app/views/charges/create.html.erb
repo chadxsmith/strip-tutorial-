@@ -1,4 +1,13 @@
-    <div class="cd-pricing-container cd-has-margins">
+<script>
+
+// var elem = document.getElementById('allContent');
+// elem.parentNode.removeChild(elem);
+
+// document.getElementById('pushContent').innerHTML = '<ol><li>html data</li></ol>';
+
+</script>
+
+              <div class="cd-pricing-container cd-has-margins">
 
                     <ul class="cd-pricing-list">
                       <li>
@@ -21,20 +30,20 @@
                         </div> <!-- .cd-pricing-body -->
 
                         <footer class="cd-pricing-footer">
-                         
                           <%= form_tag(charges_path) do %> 
                                      
-                                      <button class="cd-select">Get Started</button>
+                                      <button class="cd-select cd-selectBlack">Get Started</button>
 
                                       <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                              
                                               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                              data-description="A month's subscription"
+                                              data-description="Basic"
                                               panelLabel: "Subscribe"
                                               data-amount="3000"
                                               data-locale="auto">
-                                      </script>               
-                            <% end %>    
+                                      </script>
+                                                      
+                            <% end %>     
 
                         </footer> <!-- .cd-pricing-footer -->
                       </li>
@@ -58,25 +67,25 @@
                         </div> <!-- .cd-pricing-body -->
 
                         <footer class="cd-pricing-footer">
-                          <div class="color_background">
-
+                          <div class="color_background">            
                               <%= form_tag(charges_path) do %> 
                                      
-                                      <button class="cd-select">Get Started</button>
+                                      <button class="cd-select cd-selectBlueish">Get Started</button>
 
                                       <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                              
                                               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                              data-description="A month's subscription"
+                                              data-description="Popular"
                                               panelLabel: "Subscribe"
                                               data-amount="6000"
                                               data-locale="auto">
+                                              handler.open({closed : function(){
+                                                colorChange()
+                                              /* some function here*/}})
                                       </script>
                                                       
-                                <% end %>  
-
-
-                            </div>
+                                <% end %>                       
+                         </div>
                         </footer> <!-- .cd-pricing-footer -->
                       </li>
                       <li>
@@ -102,21 +111,16 @@
 
                         <%= form_tag(charges_path) do %> 
                              
-
-                               <button class="cd-select">Get Started</button>
-
+                              <button class="cd-select cd-selectBlack">Get Started</button>
 
                               <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                                      
                                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                      data-description="A month's subscription"
+                                      data-description="Premier"
                                       panelLabel: "Subscribe"
                                       data-amount="9000"
                                       data-locale="auto">
                               </script>
-
-
-        
                                               
                         <% end %>
 
@@ -126,4 +130,3 @@
                   </div> <!-- .cd-pricing-container -->
 
               </div>
-
