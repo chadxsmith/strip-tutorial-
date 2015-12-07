@@ -31,7 +31,11 @@ body{
 	margin-top: 20px;
 }
 .hero-section{
-	background-color: #f5d76e;
+	background: #f2a900; /* Old browsers */
+	background: -moz-linear-gradient(left,  #f2a900 0%, #f5d76e 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #f2a900 0%,#f5d76e 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #f2a900 0%,#f5d76e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2a900', endColorstr='#f5d76e',GradientType=1 ); /* IE6-9 */
 }
 .logo{
 	padding-top: 20px;
