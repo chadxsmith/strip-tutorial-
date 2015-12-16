@@ -1,125 +1,56 @@
+<%= render 'layouts/mainContent_partial' %>
 
+<div class="container">
               <div class="cd-pricing-container cd-has-margins">
 
                     <ul class="cd-pricing-list">
-                      <li>
-                        <header class="cd-pricing-header">
-                          <h2>Basic</h2>
+                      <% widgets.each do |index, widget| %>
+    <%= content_tag :li, class: "cd-#{widget[:name].downcase}" do %>
+     <header class="cd-pricing-header">
+      <h2><%= widget[:name] %></h2>
 
-                          <div class="cd-price">
-                            <span class="cd-currency">$</span>
-                            <span class="cd-value">30</span>
-                            <span class="cd-duration">per show</span>
-                          </div>
-                        </header> <!-- .cd-pricing-header -->
+      <div class="cd-price">
+        <span class="cd-currency">$</span>
+        <span class="cd-value"><%= widget[:amount] / 100  %></span>
+        <span class="cd-duration">per show</span>
+      </div>
+    </header> <!-- .cd-pricing-header -->
 
-                        <div class="cd-pricing-body">
-                          <ul class="cd-pricing-features">
-                            <li><em>3</em> Booked Transportation Tickets</li>
-                            <li><em>3</em> Booked Lodging Accommodations </li>
-                            <li><em>24/7</em> Customer Support</li>
-                          </ul>
-                        </div> <!-- .cd-pricing-body -->
+    <div class="cd-pricing-body">
+      <ul class="cd-pricing-features">
+        <li><em><%= widget[:extras] %></em> Booked Transportation Tickets</li>
+        <li><em><%= widget[:extras] %></em> Booked Lodging Accommodations</li>
+        <li><em>24/7</em> Customer Support</li>
+      </ul>
+    </div> <!-- .cd-pricing-body -->
 
-                        <footer class="cd-pricing-footer">
-                          <%= form_tag(charges_path) do %> 
-                                     
-                                      <button class="cd-select cd-selectBlack">Get Started</button>
+    <footer class="cd-pricing-footer">
+      <div class="color_background">            
+          <%= form_tag(charges_path(widget: index)) do %> 
+                 
+                  <button class="cd-select cd-selectBlueish">Get Started</button>
 
-                                      <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
-                                             
-                                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                              data-description="Basic"
-                                              panelLabel: "Subscribe"
-                                              data-amount="3000"
-                                              data-locale="auto">
-                                      </script>
-                                                      
-                            <% end %>     
-
-                        </footer> <!-- .cd-pricing-footer -->
-                      </li>
-                      <li class="cd-popular">
-                        <header class="cd-pricing-header">
-                          <h2>Popular</h2>
-
-                          <div class="cd-price">
-                            <span class="cd-currency">$</span>
-                            <span class="cd-value">60</span>
-                            <span class="cd-duration">per show</span>
-                          </div>
-                        </header> <!-- .cd-pricing-header -->
-
-                        <div class="cd-pricing-body">
-                          <ul class="cd-pricing-features">
-                            <li><em>6</em> Booked Transportation Tickets</li>
-                            <li><em>6</em> Booked Lodging Accommodations</li>
-                            <li><em>24/7</em> Customer Support</li>
-                          </ul>
-                        </div> <!-- .cd-pricing-body -->
-
-                        <footer class="cd-pricing-footer">
-                          <div class="color_background">            
-                              <%= form_tag(charges_path) do %> 
-                                     
-                                      <button class="cd-select cd-selectBlueish">Get Started</button>
-
-                                      <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
-                                             
-                                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                              data-description="Popular"
-                                              panelLabel: "Subscribe"
-                                              data-amount="6000"
-                                              data-locale="auto">
-                                              handler.open({closed : function(){
-
-                                              /* some function here*/}})
-                                      </script>
-                                                      
-                                <% end %>                       
-                         </div>
-                        </footer> <!-- .cd-pricing-footer -->
-                      </li>
-                      <li>
-                        <header class="cd-pricing-header">
-                          <h2>Premier</h2>
-
-                          <div class="cd-price">
-                            <span class="cd-currency">$</span>
-                            <span class="cd-value">90</span>
-                            <span class="cd-duration">per show</span>
-                          </div>
-                        </header> <!-- .cd-pricing-header -->
-
-                        <div class="cd-pricing-body">
-                          <ul class="cd-pricing-features">
-                            <li><em>9</em> Booked Transportation Tickets</li>
-                            <li><em>9</em> Booked Lodging Accommodations</li>
-                            <li><em>24/7</em> Customer Support</li>
-                          </ul>
-                        </div> <!-- .cd-pricing-body -->
-
-                        <footer class="cd-pricing-footer">
-
-                        <%= form_tag(charges_path) do %> 
-                             
-                              <button class="cd-select cd-selectBlack">Get Started</button>
-
-                              <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
-                                     
-                                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                      data-description="Premier"
-                                      panelLabel: "Subscribe"
-                                      data-amount="9000"
-                                      data-locale="auto">
-                              </script>
-                                              
-                        <% end %>
-
-                        </footer>  <!-- .cd-pricing-footer -->
-                      </li>
+                  <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
+                         
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description=<%= widget[:name] %>
+                          panelLabel: "Subscribe"
+                          data-amount=<%= widget[:amount]%>
+                          data-locale="auto">
+                          handler.open({closed : function(){
+                            colorChange()
+                          /* some function here*/}})
+                  </script>
+                                  
+            <% end %>                       
+     </div>
+    </footer> <!-- .cd-pricing-footer -->
+    <% end %>
+<% end %>
                     </ul> <!-- .cd-pricing-list -->
                   </div> <!-- .cd-pricing-container -->
 
               </div>
+    </div><!-- end of purchase-section -->
 
+<%= render 'layouts/footer_partial' %>

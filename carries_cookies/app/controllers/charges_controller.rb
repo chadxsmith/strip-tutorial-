@@ -5,20 +5,27 @@ class ChargesController < ApplicationController
 	end
 
 	def create
+
+
 	  # Amount in cents
-	  @amount = 100
+	  widget_id = params[:widget] #w1, w2, w3
+	  widget = widgets[widget_id.to_sym]
+	  amount = widget[:amount]
+	  token = params[:stripeToken]
+	  email = params[:stripeEmail]
+	  description = widget[:description]
+	  # @amount = 100
 
 	  customer = Stripe::Customer.create(
-	    :email => 'info@chadxsmith.co',
-	    :card  => params[:stripeToken]
+	    :email => email,
+	    :card  => token
 	  )
 
-	  
 	  # binding.pry
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
+	    :amount      => amount,
+	    :description => description,
 	    :currency    => 'usd'
 	  )
 
