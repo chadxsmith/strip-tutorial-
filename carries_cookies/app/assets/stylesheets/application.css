@@ -57,6 +57,19 @@ body{
 	padding-bottom: 10px;
 }
 
+.headline_alt{
+	font-size: 41px;
+	font-weight: 300;
+	padding-bottom: 10px;
+}
+
+.sub_headline_alt{
+	font-size: 21px;
+	font-weight: 300;
+	padding-bottom: 700px;
+}
+
+
 .sub_headline{
 	font-size: 21px;
 	font-weight: 400;
