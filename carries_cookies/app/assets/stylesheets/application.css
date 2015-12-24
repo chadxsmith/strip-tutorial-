@@ -442,6 +442,8 @@ button{
 }
 
 
+
+
 .mobile-users-icon,.mobile-wallet-icon{
 	display: none;
 }
@@ -795,8 +797,6 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 
 .reason-left-one{
-/*	margin-left: 61px;
-	margin-right: 61px;*/
 	padding-bottom: 20px;
 }
 
@@ -805,7 +805,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 
 .reason-left-three {
-   width: 70%;
+   width: 53%;
 }
 
 
@@ -820,8 +820,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 
 .reason-two{
 	padding-bottom: 20px;
-	float: right;
-	width: 61%;	
+	width: 100%;	
 }
 
 .description > .body_3{
@@ -830,10 +829,9 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 
 
 .headache{
-	float: right;
+	float: left;
     margin-top: 40px;
     margin-bottom: 50px;
-    margin-right: 2.92%;
 }
 
 .confirmation{
@@ -879,25 +877,36 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 .mobile-users-icon{
 	float: left;
-	margin-left: 87px;
 	margin-top: 40px;
 }
 .reason-three{
-	float: none;
-	margin-left: 27%;
-	width: 74%;
+	float: right;
+	width: 100%;
 	padding-bottom: 20px;
 }
 .mobile-wallet-icon{
-	float: right;
+	float: left;
 	display: inherit;
-	margin-right:7%;
 	margin-top: 40px;
-}
-.reason-four{
-	width: 61%;
+	margin-left: 21%;
+	margin-bottom: 90px;
 }
 
+.reason-right-two{
+	float: right;
+	width: 48%;
+}
+
+.reason-right-four{
+	padding-top: 180px;
+	float: right;
+	width: 47%;
+}
+
+
+.reason-right{
+	padding-left: 0px;
+}
 .cd-popular .cd-pricing-header{
 	color: #ffffff;
     background-color: #02bde1;
@@ -942,6 +951,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 .testimony-area{
 	height: 500px;
+	margin-bottom: 60px;
 }
 .step_alt{
 	margin-right: 7%;
@@ -961,6 +971,9 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 .step_second{
 	margin-right: 0%;
+}
+.cd-premier{
+    margin-bottom: 70px;
 }
 
 /*
@@ -985,6 +998,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
  	}
  	.headache{
  		padding-top: 0px;
+ 		margin-left:18%;
  	}
  	.reason-left-three {
  		padding-top: 10px;,
@@ -1010,6 +1024,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 	.mobile-users-icon{
 		padding-top: 0px;
  		display: block;
+ 		margin-left: 22%;
   /*  	margin-left: auto;
    		margin-right: auto;*/
 	}
