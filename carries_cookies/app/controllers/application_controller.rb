@@ -8,19 +8,19 @@ class ApplicationController < ActionController::Base
   def widgets
   	{w1: {
   		    name: "Basic",
-  		    description: "Basic Description",
+  		    description: "Basic Booking Package",
   		    amount: 0100,
   		    extras: 3
   		},
   	w2: {
   		    name: "Popular",
-  		    description: "Popular Description",
+  		    description: "Popular Booking Package",
   		    amount: 6000,
   		    extras: 6
   		},
   	w3: {
   		    name: "Premier",
-  		    description: "Premier Description",
+  		    description: "Premier Booking Package",
   		    amount: 9000,
   		    extras: 9
   		}}
