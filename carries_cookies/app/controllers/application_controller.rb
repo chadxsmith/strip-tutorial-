@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   	{w1: {
   		    name: "Basic",
   		    description: "Basic Booking Package",
-  		    amount: 3000,
+  		    amount: 0100,
   		    extras: 3
   		},
   	w2: {
