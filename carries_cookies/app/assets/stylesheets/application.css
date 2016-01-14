@@ -692,7 +692,11 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 
 
 
+.cd-pricing-container{
+	margin: 0px;
+}
 
+.cd-pricing-container{}
 
 @media (min-width : 9px) and (max-width : 1040px) {
 
