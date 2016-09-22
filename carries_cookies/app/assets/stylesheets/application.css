@@ -15,7 +15,24 @@
  *= require fancybox
  */
 
+.cd-pricing-container{
+	width: 100% !important;
+}
+.cd-pricing-body{
+	position: relative;
+    bottom: -25px;
+}
+.cd-pricing-header{
+	padding: 2.9em 0.9em .3em !important;
+}
 
+.testimony-area{
+	   margin-bottom: 91px;
+}
+
+/*.cd-pricing-footer{
+	padding: 0px !important;
+}*/
 
 body{
 	font-family: 'Roboto'
