@@ -26,7 +26,8 @@
       <div class="color_background">            
           <%= form_tag(charges_path(widget: index)) do %> 
                  
-                  <button class="cd-select cd-selectBlueish">Get Started</button>
+                  <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
+                  <% end %>
 
                   <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                          
