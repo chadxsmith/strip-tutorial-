@@ -15,6 +15,26 @@
  *= require fancybox
  */
 
+a.faq__email{
+	color: #aeaeae;
+	text-decoration: underline;
+}
+.faq__header{
+	color: #303030;
+	font-weight: 400;
+	font-size: 21px;
+}
+
+.faq__description{
+	color: #aeaeae;;
+	font-weight: 300;
+	font-size: 21px;
+}
+
+.faq__divider{
+	margin-bottom: 45px
+}
+
 .cd-pricing-container{
 	width: 100% !important;
 }
@@ -207,6 +227,12 @@ body{
 	margin-bottom: 60px;
 }
 
+.callToAction2--alt{
+	border-bottom:none !important;
+	border-bottom: none !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important; 
+}
 
 .footerSection{
 	margin-top: 60px;
@@ -716,7 +742,10 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 .cd-pricing-container{}
 
 @media (min-width : 9px) and (max-width : 1040px) {
-
+.cd-select{
+	background-color: transparent;
+	height: 281px;
+}
  .no-touch .cd-popular .cd-select:hover {
     background-color: transparent;
   } 
@@ -971,7 +1000,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 	margin-top: 0px;
 }
 .testimony-area{
-	height: 500px;
+	height: 512px;
 	margin-bottom: 60px;
 }
 .step_alt{
@@ -1010,6 +1039,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
  		width: 100%;
  		max-width: 1000px;
  		font-size: 20.5px;
+ 		line-height: 1.6;
  	}
  	.product-customers{
  		padding-bottom: 140px;
@@ -1050,16 +1080,42 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
    		margin-right: auto;*/
 	}
 	.cd-pricing-header{
-		height: 80px;
+		height: 146px;
+	}
+	.callToAction2--alt{
+		border-top: none;
+		/*margin-bottom: -25px !important; */
+	}
+	.faq__divider{
+		margin-bottom: 0px;
+	}
+	.faq__divider--mobile{
+		margin-bottom: 45px;
+	}
+
+	ul.cd-pricing-features{
+		padding-bottom: 26px;
 	}
 	.cd-pricing-features li{
 		float: none;
 		text-overflow: initial;
 		overflow: inherit;
 		width: 300px;
+		padding: none;
+		padding-top: 0px !important;
+    	padding-bottom: 26px !important;
 	}
-	.cd-pricing-header{
+
+	.body_3_alt br{
+		display: none;
+	}
+
+
+/*	.cd-pricing-header{
 		height: 100px;
+	}*/
+	.cd-pricing-body{
+		position: relative !important;
 	}
 	.cd-pricing-body{
 		overflow-x: hidden;
