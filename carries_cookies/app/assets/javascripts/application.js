@@ -18,6 +18,78 @@
 
 $(document).ready(function() {
 
+console.log("application js is running")
+
+//Move a hover
+$(".test1").fancybox({
+    // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
+    href: "assets/source.gif"
+});
+
+$(".test1").mouseover(function() {
+
+    $(this).click();
+    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+// }, function() {
+//     $.fancybox.close();
+
+});
+
+$(".test1").mouseleave(function(){
+  console.log("i've moved away!!!")
+   $.fancybox.close()
+})
+
+
+
+
+
+//Move a hover
+$(".test2").fancybox({
+    href: "assets/source2.gif"
+});
+
+$(".test2").mouseover(function() {
+
+    $(this).click();
+    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+// }, function() {
+//     $.fancybox.close();
+
+});
+
+$(".test2").mouseleave(function(){
+  console.log("i've moved away!!!")
+   $.fancybox.close()
+})
+
+
+
+
+
+//Move a hover
+$(".test3").fancybox({
+     href: "assets/source3.gif"
+});
+
+$(".test3").mouseover(function() {
+
+    $(this).click();
+    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+// }, function() {
+//     $.fancybox.close();
+
+});
+
+$(".test3").mouseleave(function(){
+  console.log("i've moved away!!!")
+   $.fancybox.close()
+})
+
+
+
+
+
 
 $(".fancybox").fancybox();
 

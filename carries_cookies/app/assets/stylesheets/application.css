@@ -15,6 +15,26 @@
  *= require fancybox
  */
 
+/*#fancybox-wrap { 
+  position: relative;
+  top: 147px !important; 
+  left: 47px !important; 
+}*/
+
+.test{
+	border: 1px solid red;
+}
+
+.img-curve{
+	border-radius: 4%;
+	opacity: 0.7;
+}
+
+.img-curve:hover{
+	 
+	opacity: 1.0;
+}
+
 a.faq__email{
 	color: #aeaeae;
 	text-decoration: underline;
@@ -289,9 +309,9 @@ body{
 button{
 	border: none;
 }
-#fancybox-wrap {
+/*#fancybox-wrap {
     top: 100px !important;
-}
+}*/
 
 
 ------------------------------------------------------------------------------------------------*/
