@@ -20,9 +20,7 @@
   top: 147px !important; 
   left: 47px !important; 
 }*/
-.fake{
 
-}
 
 .test{
 	border: 1px solid red;
@@ -765,6 +763,15 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 .cd-pricing-container{}
 
 @media (min-width : 9px) and (max-width : 1040px) {
+
+
+
+
+.test2{
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+
 
 .btn--login{
 	display: none;
