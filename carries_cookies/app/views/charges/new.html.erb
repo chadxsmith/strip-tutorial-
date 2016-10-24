@@ -12,15 +12,14 @@
       <div class="cd-price">
         <span class="cd-currency">$</span>
         <span class="cd-value"><%= widget[:amount] / 100  %></span>
-        <span class="cd-duration">per show</span>
+        <span class="cd-duration">per month</span>
       </div>
     </header> <!-- .cd-pricing-header -->
 
     <div class="cd-pricing-body">
       <ul class="cd-pricing-features">
-        <li><em><%= widget[:extras] %></em> Booked Transportation Tickets</li>
-        <li><em><%= widget[:extras] %></em> Booked Lodging Accommodations</li>
-        <li><em>24/7</em> Customer Support</li>
+        <li><em><%= widget[:extras] %></em> Minute Mix</li>
+        <li><em><%= widget[:categoriesCount] %></em><%= widget[:categoriesDescription] %></li>
       </ul>
     </div> <!-- .cd-pricing-body -->
 
@@ -28,7 +27,8 @@
       <div class="color_background">            
           <%= form_tag(charges_path(widget: index)) do %> 
                  
-                  <button class="cd-select cd-selectBlueish">Get Started</button>
+                  <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
+                  <% end %>
 
                   <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                          
@@ -44,7 +44,12 @@
                                   
             <% end %>                       
      </div>
+
+
     </footer> <!-- .cd-pricing-footer -->
+
+    
+
     <% end %>
 <% end %>
                     </ul> <!-- .cd-pricing-list -->
