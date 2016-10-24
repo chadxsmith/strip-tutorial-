@@ -10,25 +10,25 @@ class ApplicationController < ActionController::Base
   		    name: "Basic",
   		    description: "Basic Booking Package",
   		    amount: 7500,
-  		    extras: 4,
-          categoriesCount: 1,
-          categoriesDescription: " Theme (e.g. Outer Space)"
+  		    extras: 60,
+          categoriesCount: 2,
+          categoriesDescription: " Themes"
   		},
   	w2: {
   		    name: "Popular",
   		    description: "Popular Booking Package",
   		    amount: 15000,
-  		    extras: 8,
-          categoriesCount: 2,
-          categoriesDescription: " Themes (e.g. Glitch & Grunge)"
+  		    extras: 120,
+          categoriesCount: 4,
+          categoriesDescription: " Themes"
   		},
   	w3: {
   		    name: "Premier",
   		    description: "Premier Booking Package",
   		    amount: 20000,
-  		    extras: 12,
-          categoriesCount: 3,
-          categoriesDescription: " Themes (e.g. Halloween)"
+  		    extras: 180,
+          categoriesCount: 6,
+          categoriesDescription: " Themes"
   		}}
   end
 end

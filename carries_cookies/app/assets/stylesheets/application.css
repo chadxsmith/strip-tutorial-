@@ -21,6 +21,9 @@
   left: 47px !important; 
 }*/
 
+.row__theme--marginTop{
+	padding-top: 15px;
+}
 
 .test{
 	border: 1px solid red;
@@ -211,6 +214,7 @@ body{
 .step{
 	font-size: 24px;
 	margin-top: 20px;
+	margin-bottom: 15px;
 }
 .number{
 	color:#919191;

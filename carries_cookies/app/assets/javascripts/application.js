@@ -23,7 +23,7 @@ console.log("application js is running")
 //Move a hover
 $(".test1").fancybox({
     // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
-    href: "assets/source.gif"
+    href: "assets/Recursive.gif"
 });
 
 $(".test1").mouseover(function() {
@@ -46,7 +46,7 @@ $(".test1").mouseleave(function(){
 
 //Move a hover
 $(".test2").fancybox({
-    href: "assets/source2.gif"
+    href: "assets/glitch.gif"
 });
 
 $(".test2").mouseover(function() {
@@ -69,7 +69,7 @@ $(".test2").mouseleave(function(){
 
 //Move a hover
 $(".test3").fancybox({
-     href: "assets/source3.gif"
+     href: "assets/highContrast.gif"
 });
 
 $(".test3").mouseover(function() {
@@ -82,6 +82,71 @@ $(".test3").mouseover(function() {
 });
 
 $(".test3").mouseleave(function(){
+  console.log("i've moved away!!!")
+   $.fancybox.close()
+})
+
+
+
+//Move a hover
+$(".test4").fancybox({
+     href: "assets/Outerspace.gif"
+});
+
+$(".test4").mouseover(function() {
+
+    $(this).click();
+    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+// }, function() {
+//     $.fancybox.close();
+
+});
+
+
+$(".test4").mouseleave(function(){
+  console.log("i've moved away!!!")
+   $.fancybox.close()
+})
+
+
+
+
+//Move a hover
+$(".test5").fancybox({
+     href: "assets/timeLapse.gif"
+});
+
+$(".test5").mouseover(function() {
+
+    $(this).click();
+    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+// }, function() {
+//     $.fancybox.close();
+
+});
+
+$(".test5").mouseleave(function(){
+  console.log("i've moved away!!!")
+   $.fancybox.close()
+})
+
+
+
+//Move a hover
+$(".test6").fancybox({
+     href: "assets/tunnelLights.gif"
+});
+
+$(".test6").mouseover(function() {
+
+    $(this).click();
+    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+// }, function() {
+//     $.fancybox.close();
+
+});
+
+$(".test6").mouseleave(function(){
   console.log("i've moved away!!!")
    $.fancybox.close()
 })
