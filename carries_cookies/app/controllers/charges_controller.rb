@@ -15,7 +15,7 @@ class ChargesController < ApplicationController
        # redirect_to {path you want to send the user to if payment was successful} if charge.paid
       rescue Stripe::CardError => e
         flash[:error] = e.message
-        redirect_to charges_path
+        redirect_to root_path
       end
     else
       
