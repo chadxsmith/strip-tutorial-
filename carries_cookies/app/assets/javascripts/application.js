@@ -23,7 +23,7 @@ console.log("application js is running")
 //Move a hover
 $(".test1").fancybox({
     // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
-    href: "assets/Recursive.gif"
+    href: "assets/glow.gif"
 });
 
 $(".test1").mouseover(function() {
@@ -46,7 +46,7 @@ $(".test1").mouseleave(function(){
 
 //Move a hover
 $(".test2").fancybox({
-    href: "assets/glitch.gif"
+    href: "assets/3d.gif"
 });
 
 $(".test2").mouseover(function() {
@@ -69,7 +69,7 @@ $(".test2").mouseleave(function(){
 
 //Move a hover
 $(".test3").fancybox({
-     href: "assets/highContrast.gif"
+     href: "assets/abstract.gif"
 });
 
 $(".test3").mouseover(function() {
@@ -90,7 +90,7 @@ $(".test3").mouseleave(function(){
 
 //Move a hover
 $(".test4").fancybox({
-     href: "assets/Outerspace.gif"
+     href: "assets/cube.gif"
 });
 
 $(".test4").mouseover(function() {
@@ -113,7 +113,7 @@ $(".test4").mouseleave(function(){
 
 //Move a hover
 $(".test5").fancybox({
-     href: "assets/timeLapse.gif"
+     href: "assets/2d.gif"
 });
 
 $(".test5").mouseover(function() {
@@ -134,7 +134,7 @@ $(".test5").mouseleave(function(){
 
 //Move a hover
 $(".test6").fancybox({
-     href: "assets/tunnelLights.gif"
+     href: "assets/Glitch_N_VHS.gif"
 });
 
 $(".test6").mouseover(function() {
