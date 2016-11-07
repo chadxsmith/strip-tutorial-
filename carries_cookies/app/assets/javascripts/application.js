@@ -20,6 +20,16 @@ $(document).ready(function() {
 
 console.log("application js is running")
 
+
+$(".navigation--hamburger").click(function(){
+  
+   $(".navigation--hamburger--dropdown--hidden").toggleClass("navigation--hamburger--dropdown")
+   $(".navigation--hamburger--dropdown--links--hidden").toggleClass("navigation--hamburger--dropdown--links")
+
+}
+)
+
+
 //Move a hover
 $(".test1").fancybox({
     // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
