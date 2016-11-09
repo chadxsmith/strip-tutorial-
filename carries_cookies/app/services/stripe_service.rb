@@ -1,7 +1,8 @@
 class StripeService
-  def create_customer(email, token)
+  def create_customer(email, token, description)
       customer = Stripe::Customer.create(
         :email => email,
+        :description => description,
         :card  => token
       )
   end

@@ -5,12 +5,13 @@ class ChargesController < ApplicationController
     widget = find_widget(params[:widget])
     token = params[:stripeToken]
     email = params[:stripeEmail]
+    description = params[:stripeDescription]
 
     if widget
       amount = widget[:amount]
       description = widget[:description]
       begin
-       customer = @stripe_service.create_customer(email, token)
+       customer = @stripe_service.create_customer(email, token, description)
        charge = @stripe_service.charge_customer(customer.id, widget[:stripe_id])
        # redirect_to {path you want to send the user to if payment was successful} if charge.paid
       rescue Stripe::CardError => e
