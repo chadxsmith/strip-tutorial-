@@ -6,12 +6,10 @@ class StripeService
       )
   end
   
-  def charge_customer(customer_id, amount, description: "Payment made on our platform with Stripe", currency: "usd")
-    Stripe::Charge.create(
+  def charge_customer(customer_id, plan_id)
+    Stripe::Subscription.create(
       :customer    => customer_id,
-      :amount      => amount,
-      :description => description,
-      :currency    => currency
+      :plan => plan_id,
     )
   end
 end

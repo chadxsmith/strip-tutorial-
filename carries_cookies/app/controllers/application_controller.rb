@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   	{w1: {
   		    name: "Basic",
   		    description: "Basic Booking Package",
+          stripe_id: "basic",
   		    amount: 7500,
   		    extras: 60,
           categoriesCount: 2,
@@ -17,6 +18,7 @@ class ApplicationController < ActionController::Base
   	w2: {
   		    name: "Popular",
   		    description: "Popular Booking Package",
+          stripe_id: "popular",
   		    amount: 15000,
   		    extras: 120,
           categoriesCount: 4,
@@ -25,6 +27,7 @@ class ApplicationController < ActionController::Base
   	w3: {
   		    name: "Premier",
   		    description: "Premier Booking Package",
+          stripe_id: "premier",
   		    amount: 20000,
   		    extras: 180,
           categoriesCount: 6,
