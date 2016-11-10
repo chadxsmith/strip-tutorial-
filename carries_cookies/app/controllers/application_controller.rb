@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   		    name: "Popular",
   		    description: "Popular Booking Package",
           stripe_id: "popular",
-  		    amount: 6000,
+  		    amount: 5000,
   		    extras: 30,
           categoriesCount: 4,
           categoriesDescription: " Themes"
