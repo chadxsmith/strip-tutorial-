@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   		    name: "Basic",
   		    description: "Basic Booking Package",
           stripe_id: "basic",
-  		    amount: 7500,
-  		    extras: 60,
+  		    amount: 3000,
+  		    extras: 15,
           categoriesCount: 2,
           categoriesDescription: " Themes"
   		},
@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
   		    name: "Popular",
   		    description: "Popular Booking Package",
           stripe_id: "popular",
-  		    amount: 15000,
-  		    extras: 120,
+  		    amount: 6000,
+  		    extras: 30,
           categoriesCount: 4,
           categoriesDescription: " Themes"
   		},
@@ -28,8 +28,8 @@ class ApplicationController < ActionController::Base
   		    name: "Premier",
   		    description: "Premier Booking Package",
           stripe_id: "premier",
-  		    amount: 20000,
-  		    extras: 180,
+  		    amount: 7500,
+  		    extras: 60,
           categoriesCount: 6,
           categoriesDescription: " Themes"
   		}}
