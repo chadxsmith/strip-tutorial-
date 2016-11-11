@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
           stripe_id: "basic",
   		    amount: 3000,
   		    extras: 15,
-          categoriesCount: 2,
+          categoriesCount: 1,
           categoriesDescription: " Themes"
   		},
   	w2: {
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
           stripe_id: "popular",
   		    amount: 5000,
   		    extras: 30,
-          categoriesCount: 4,
+          categoriesCount: 2,
           categoriesDescription: " Themes"
   		},
   	w3: {
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
           stripe_id: "premier",
   		    amount: 7500,
   		    extras: 60,
-          categoriesCount: 6,
+          categoriesCount: 3,
           categoriesDescription: " Themes"
   		}}
   end
