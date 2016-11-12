@@ -10,11 +10,11 @@
     
         <div class="row navigation">
               
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <img class="logo" src="assets/logo.png">
               </div> <!-- end of col-md-12 -->
     
-                <div class="col-md-6">
+                <div class="col-md-7">
 <!--                   <button type="button" class="btn btn_alt btn--login" style="
                       float: right;
                       background: none;
@@ -24,11 +24,26 @@
                   ">Login
                 </button> -->
                 <ul class="navigation--links">
-                	<li><a href="#what">WHAT WE DO</a></li>
+                	
+                  <li>
+                      <a href="#what">WHAT WE DO</a>
+                  </li>
 
-                	<li><a href="#how">HOW IT WORKS</a></li>
-                <!-- 	<li><a href="">TESTIMONALS</a></li> -->
-                	<li><a href="#pricing">PRICING</a></li>
+                	<li>
+                      <a href="#how">HOW IT WORKS</a>
+                  </li>
+ 
+                	<li>
+                      <a href="#pricing">PRICING</a>
+
+                  </li>
+
+                   <li class="navigation--links--preview">
+
+                    <%= link_to "PREVIEWS",  preview_path %>
+
+                  </li>
+
 
                 	<li><a href="mailto:info@colorfulcollective.tv?subject=">CONTACT</a></li>
                 </ul>
@@ -48,6 +63,12 @@
                 	<li><a href="#how">HOW IT WORKS</a></li>
                 <!-- 	<li><a href="">TESTIMONALS</a></li> -->
                 	<li><a href="#pricing">PRICING</a></li>
+
+                  <li>
+
+                    <%= link_to "PREVIEWS",  preview_path %>
+
+                  </li>
 
                 	<li><a href="mailto:info@colorfulcollective.tv?subject=">CONTACT</a></li>
                 </ul>

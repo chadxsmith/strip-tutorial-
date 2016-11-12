@@ -20,6 +20,18 @@ $(document).ready(function() {
 
 console.log("application js is running")
 
+// $(".logo").click(function() { 
+//             window.location.reload();
+//             console.log("logo's been clicked!!!!")
+//  });
+
+$(".navigation--links li a").click(function(){
+    var link = $(this)
+    var parent = $(link).parents("navigation--links")
+    $(link, parent).css("text-decoration", "underline")
+    $(".navigation--links li a").not(link).css("text-decoration", "none")
+
+})
 
 $(".navigation--hamburger").click(function(){
   

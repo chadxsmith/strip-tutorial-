@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
     root "charges#new", page: "home"
 
+    get "preview", to: "charges#preview"
+
     resources :charges, only: [:create, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.

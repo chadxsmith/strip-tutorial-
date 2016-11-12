@@ -21,6 +21,41 @@
   left: 47px !important; 
 }*/
 
+
+.btn--monthlyUpdates{
+	margin-bottom: 27px;
+	position: relative;
+    left: 113px;
+}
+
+.description--noMarginBottom{
+	margin-bottom: 30px !important;
+}
+
+hr{
+    width: 82%;
+    border: none;
+    border-bottom: 1px solid #aeaeae;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    position: relative;
+    left: -20px;
+}
+
+.logo:hover{
+	cursor: pointer; 
+}
+
+.navigation--links--preview:before{
+	content: "|";
+	color: white;
+	position: relative;
+	left: -13px
+}
+.test_headline--previews{
+	margin-bottom: 40px;
+}
+
 .subheader_alt{
 	font-family: 'Roboto Slab', serif !important;
     color: #303030;
