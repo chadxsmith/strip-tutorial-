@@ -64,26 +64,11 @@ $(".navigation--hamburger").click(function(){
         e.preventDefault();
         $("#mce-MMERGE1").val($("#name").val());
         $("#mce-EMAIL").val($("#email").val());
-        $("#mc-embedded-subscribe-form").submit();
-        //$(this).unbind('submit').submit();
-        // $.ajax({
-        //     type: 'post',
-        //     beforeSend: function (request)
-        //     {
-        //         request.setRequestHeader("Authority", authorizationToken);
-        //     },
-        //     url: 'https://us11.api.mailchimp.com/3.0/lists/a9d10cba08/members/',
-        //     data: {"email_address": "shaffan.chaudhry1@gmail.com",
-        //         "status": "subscribed",
-        //         "merge_fields": {
-        //             "FNAME": "Shaffan",
-        //             "LNAME": "Chaudhry"
-        //         }},
-        //     success: function (data) {
-        //         console.log(data);
-        //     }
-        //
-        // });
+        $(this).unbind('submit').submit();
+        //$("#mc-embedded-subscribe-form").submit();
+        setTimeout(function() {
+            $("#mc-embedded-subscribe-form").submit();
+        }, 1500);
         $("#myModal").modal('hide');
     });
 
