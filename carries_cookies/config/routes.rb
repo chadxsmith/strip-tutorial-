@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     root "charges#new", page: "home"
 
     get "preview", to: "charges#preview"
+    post "subscribe", to: "charges#subscribe"
+    get "preview/popup", to: "charges#popup"
+    get "preview/download", to: "charges#download"
 
     resources :charges, only: [:create, :new]
 

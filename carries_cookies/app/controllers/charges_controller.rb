@@ -22,6 +22,41 @@ class ChargesController < ApplicationController
       
     end
   end
+
+  def subscribe
+    if cookies.signed[:name].present? && cookies.signed[:email].present?
+      render json: { allow: true, name: cookies.signed[:name], email: cookies.signed[:email] }
+    else
+      render json: { allow: false }
+    end
+  end
+
+  def download
+    if params[:name].present? && params[:email].present? && params[:file_name].present?
+      cookies.signed[:name] = params[:name]
+      cookies.signed[:email] = params[:email]
+      download_image
+    else
+      redirect_to root_path
+    end
+  end
+
+  def download_image
+    if params[:file_name].present?
+      file_name = params[:file_name]
+      if File.exist? "#{Rails.root}/public/content/#{file_name}"
+        send_file "#{Rails.root}/public/content/#{file_name}"
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
+  def popup
+    render "popup"
+  end
   
   #def new and other actions
   

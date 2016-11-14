@@ -41,17 +41,63 @@ $(".navigation--hamburger").click(function(){
 }
 )
 
+    $(".content").click(function () {
+        file_name = $(this).data('file-name');
+        $("#file_name").val(file_name);
+
+        $.ajax({
+            type: 'post',
+            url: '/subscribe',
+            success: function (data) {
+                if(data.allow) {
+                    $("#name").val(data.name);
+                    $("#email").val(data.email);
+                    $("#popup").submit();
+                }
+                else
+                    $("#myModal").modal('show');
+            }
+        });
+    });
+
+    $("#popup").submit(function (e) {
+        e.preventDefault();
+        $("#mce-MMERGE1").val($("#name").val());
+        $("#mce-EMAIL").val($("#email").val());
+        $("#mc-embedded-subscribe-form").submit();
+        //$(this).unbind('submit').submit();
+        // $.ajax({
+        //     type: 'post',
+        //     beforeSend: function (request)
+        //     {
+        //         request.setRequestHeader("Authority", authorizationToken);
+        //     },
+        //     url: 'https://us11.api.mailchimp.com/3.0/lists/a9d10cba08/members/',
+        //     data: {"email_address": "shaffan.chaudhry1@gmail.com",
+        //         "status": "subscribed",
+        //         "merge_fields": {
+        //             "FNAME": "Shaffan",
+        //             "LNAME": "Chaudhry"
+        //         }},
+        //     success: function (data) {
+        //         console.log(data);
+        //     }
+        //
+        // });
+        $("#myModal").modal('hide');
+    });
 
 //Move a hover
-$(".test1").fancybox({
-    // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
-    href: "assets/glow.gif"
-});
+
+// $(".test1").fancybox({
+//     // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
+//     href: "assets/glow.gif"
+// });
 
 $(".test1").mouseover(function() {
 
-    $(this).click();
-    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+    //$(this).click();
+//     $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
 
@@ -62,18 +108,18 @@ $(".test1").mouseleave(function(){
    $.fancybox.close()
 })
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 //Move a hover
-$(".test2").fancybox({
-    href: "assets/3d.gif"
-});
+// $(".test2").fancybox({
+//     href: "assets/3d.gif"
+// });
 
 $(".test2").mouseover(function() {
 
-    $(this).click();
+    //$(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -90,13 +136,13 @@ $(".test2").mouseleave(function(){
 
 
 //Move a hover
-$(".test3").fancybox({
-     href: "assets/abstract.gif"
-});
+// $(".test3").fancybox({
+//      href: "assets/abstract.gif"
+// });
 
 $(".test3").mouseover(function() {
 
-    $(this).click();
+    //$(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -111,13 +157,13 @@ $(".test3").mouseleave(function(){
 
 
 //Move a hover
-$(".test4").fancybox({
-     href: "assets/cube.gif"
-});
+// $(".test4").fancybox({
+//      href: "assets/cube.gif"
+// });
 
 $(".test4").mouseover(function() {
 
-    $(this).click();
+    //$(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -134,13 +180,13 @@ $(".test4").mouseleave(function(){
 
 
 //Move a hover
-$(".test5").fancybox({
-     href: "assets/2d.gif"
-});
+// $(".test5").fancybox({
+//      href: "assets/2d.gif"
+// });
 
 $(".test5").mouseover(function() {
 
-    $(this).click();
+    //$(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -155,13 +201,13 @@ $(".test5").mouseleave(function(){
 
 
 //Move a hover
-$(".test6").fancybox({
-     href: "assets/Glitch_N_VHS.gif"
-});
+// $(".test6").fancybox({
+//      href: "assets/Glitch_N_VHS.gif"
+// });
 
 $(".test6").mouseover(function() {
 
-    $(this).click();
+    //$(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -195,7 +241,6 @@ $('#privacy_footer').click(function(){
    $('.bxslider').bxSlider({
   	auto: true
   });
-
 });
 
 
