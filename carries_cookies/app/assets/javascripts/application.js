@@ -18,6 +18,21 @@
 
 $(document).ready(function() {
 
+
+ $(".img-curve").hover(function(){
+  console.log(" i just got hovered on!!")
+
+  var parent = $(this).parents(".content-grouper")
+  var image = $(this, parent)
+  var buttonDownload = $(".btn--download", parent)
+
+  $(image).toggleClass("")
+  $(buttonDownload).toggleClass("btn--download--hidden")
+  // $(".btn--download").not(buttonDownload).toggleClass("btn--download--hidden")
+
+
+ }) 
+
 console.log("application js is running")
 
 // $(".logo").click(function() { 
