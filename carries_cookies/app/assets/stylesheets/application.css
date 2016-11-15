@@ -21,6 +21,20 @@
   left: 47px !important; 
 }*/
 
+.img-download:hover{
+	cursor: pointer; 
+}
+
+.btn--download--hidden{
+	display: none !important
+}
+
+.btn--download{
+	position: relative;
+    top: -163px;
+    width: 206px !important;
+    display: default;
+}
 
 .btn--monthlyUpdates{
 	margin-bottom: 27px;
