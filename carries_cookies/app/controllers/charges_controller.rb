@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
       cookies.signed[:email] = params[:email]
       @file_name = params[:file_name]
       subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
-      redirect_to preview_path
+      render :preview
     else
       redirect_to root_path
     end
@@ -83,8 +83,16 @@ class ChargesController < ApplicationController
       begin
         @mc.lists.subscribe(list_id, { email: email}, merge_vars: { FIRSTNAME: name, STATUS: 'Subscribed' })
         flash[:success] = 'To complete the subscription process, please click the link in the email we just sent you.'
+      rescue Mailchimp::ListAlreadySubscribedError
+        flash[:warning] = "#{email} is already subscribed to the list"
       rescue Mailchimp::ListDoesNotExistError
         flash[:error] = "The list could not be found"
+      rescue Mailchimp::Error => ex
+        if ex.message
+          flash[:warning] = ex.message
+        else
+          flash[:warning] = "An unknown error occurred"
+        end
       end
     end
 end
