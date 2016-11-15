@@ -55,14 +55,22 @@ $(".navigation--hamburger").click(function(){
 
 }
 )
+    $(".img-download").click(function () {
+        show_popup(this);
+    });
 
-    $(".content").click(function () {
-        file_name = $(this).data('file-name');
+    $(".btn--download").click(function () {
+        element = $(this).parent().parent().children('img');
+        show_popup(element);
+    });
+
+    function show_popup (element) {
+        file_name = $(element).data('file-name');
         $("#file_name").val(file_name);
 
         $.ajax({
             type: 'post',
-            url: '/subscribe',
+            url: 'preview/get_cookies',
             success: function (data) {
                 if(data.allow) {
                     $("#name").val(data.name);
@@ -73,30 +81,22 @@ $(".navigation--hamburger").click(function(){
                     $("#myModal").modal('show');
             }
         });
-    });
+    }
 
     $("#popup").submit(function (e) {
-        e.preventDefault();
-        $("#mce-MMERGE1").val($("#name").val());
-        $("#mce-EMAIL").val($("#email").val());
-        $(this).unbind('submit').submit();
-        //$("#mc-embedded-subscribe-form").submit();
-        setTimeout(function() {
-            $("#mc-embedded-subscribe-form").submit();
-        }, 1500);
         $("#myModal").modal('hide');
     });
 
 //Move a hover
 
-// $(".test1").fancybox({
-//     // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
-//     href: "assets/glow.gif"
-// });
+$(".test1").fancybox({
+    // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
+    href: "assets/glow.gif"
+});
 
 $(".test1").mouseover(function() {
 
-    //$(this).click();
+    $(this).click();
 //     $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -113,13 +113,13 @@ $(".test1").mouseleave(function(){
 
 
 //Move a hover
-// $(".test2").fancybox({
-//     href: "assets/3d.gif"
-// });
+$(".test2").fancybox({
+    href: "assets/3d.gif"
+});
 
 $(".test2").mouseover(function() {
 
-    //$(this).click();
+    $(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -136,13 +136,13 @@ $(".test2").mouseleave(function(){
 
 
 //Move a hover
-// $(".test3").fancybox({
-//      href: "assets/abstract.gif"
-// });
+$(".test3").fancybox({
+     href: "assets/abstract.gif"
+});
 
 $(".test3").mouseover(function() {
 
-    //$(this).click();
+    $(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -157,13 +157,13 @@ $(".test3").mouseleave(function(){
 
 
 //Move a hover
-// $(".test4").fancybox({
-//      href: "assets/cube.gif"
-// });
+$(".test4").fancybox({
+     href: "assets/cube.gif"
+});
 
 $(".test4").mouseover(function() {
 
-    //$(this).click();
+    $(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -180,13 +180,13 @@ $(".test4").mouseleave(function(){
 
 
 //Move a hover
-// $(".test5").fancybox({
-//      href: "assets/2d.gif"
-// });
+$(".test5").fancybox({
+     href: "assets/2d.gif"
+});
 
 $(".test5").mouseover(function() {
 
-    //$(this).click();
+    $(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
@@ -201,13 +201,13 @@ $(".test5").mouseleave(function(){
 
 
 //Move a hover
-// $(".test6").fancybox({
-//      href: "assets/Glitch_N_VHS.gif"
-// });
+$(".test6").fancybox({
+     href: "assets/Glitch_N_VHS.gif"
+});
 
 $(".test6").mouseover(function() {
 
-    //$(this).click();
+    $(this).click();
     // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();

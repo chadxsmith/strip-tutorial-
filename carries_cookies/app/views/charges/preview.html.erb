@@ -81,6 +81,11 @@
 
 
       <div class="row">
+        <% if flash[:success].present? %>
+            <div class="alert alert-success">
+              <strong>Success!</strong> <%= flash[:success] %>
+            </div>
+        <% end %>
                 
                 <h1  class="description">
                   <span class="header"></span>
@@ -109,7 +114,7 @@
                                 
                               <div class="content-grouper">
 
-                                <img class="img-curve img-download content" data-file-name="content.jpg" src="assets/glow.jpg">
+                                <img class="img-curve img-download" data-file-name="content.jpg" src="assets/glow.jpg">
                                 <h3 class="step step_alt">
                             <span class="label">November 2016</span>
                               <button type="button" class="btn btn--download btn--download--hidden">Download</button>
@@ -133,7 +138,7 @@
                                 
                               <div class="content-grouper">
 
-                                 <img class="img-curve img-download content" data-file-name="content.jpg" src="assets/3d.jpg">
+                                 <img class="img-curve img-download" data-file-name="content.jpg" src="assets/3d.jpg">
 
                                  <h3 class="step step_alt">
                             <span class="label">October 2016</span>
@@ -155,7 +160,7 @@
                                 
                               <div class="content-grouper">
 
-                                <img class="img-curve img-download content" data-file-name="content.jpg" src="assets/abstract.jpg">
+                                <img class="img-curve img-download" data-file-name="content.jpg" src="assets/abstract.jpg">
                                 <h3 class="step step_alt">
                             <span class="label">September 2016</span>
                               <button type="button" class="btn btn--download btn--download--hidden">Download</button>
@@ -353,7 +358,7 @@
          <h4 class="modal-title" id="myModalLabel">Subscribe</h4>
        </div>
        <div class="modal-body">
-         <form id="popup" action="preview/download">
+         <form id="popup" action="preview/subscribe">
            <div class="form-group">
              <label for="formGroupExampleInput">Name*</label>
              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
@@ -408,26 +413,32 @@
 
  <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
  <script>
+  $(document).ready(function () {
 
-   $("#popup").validate({
-     // Specify validation rules
-     rules: {
-       // The key name on the left side is the name attribute
-       // of an input field. Validation rules are defined
-       // on the right side
-       name: "required",
-       email: {
-         required: true,
-         // Specify that email should be validated
-         // by the built-in "email" rule
-         email: true
-       }
-     },
-     // Specify validation error messages
-     messages: {
-       name: "Please enter your first name",
-       email: "Please enter a valid email address"
-     }
-   });
+    <% if @file_name %>
+      window.location.href = <%= "#{preview_download_url}?file_name=#{@file_name}" %>
+    <% end %>
+
+    $("#popup").validate({
+      // Specify validation rules
+      rules: {
+        // The key name on the left side is the name attribute
+        // of an input field. Validation rules are defined
+        // on the right side
+        name: "required",
+        email: {
+          required: true,
+          // Specify that email should be validated
+          // by the built-in "email" rule
+          email: true
+        }
+      },
+      // Specify validation error messages
+      messages: {
+        name: "Please enter your first name",
+        email: "Please enter a valid email address"
+      }
+    });
+  });
 
  </script>

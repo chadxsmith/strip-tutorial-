@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   before_action :setup_stripe_service, only: :create
+  before_action :setup_mcapi, only: :subscribe
   
   def create
     widget = find_widget(params[:widget])
@@ -23,7 +24,7 @@ class ChargesController < ApplicationController
     end
   end
 
-  def subscribe
+  def get_cookies
     if cookies.signed[:name].present? && cookies.signed[:email].present?
       render json: { allow: true, name: cookies.signed[:name], email: cookies.signed[:email] }
     else
@@ -31,26 +32,30 @@ class ChargesController < ApplicationController
     end
   end
 
-  def download
+  def subscribe
     if params[:name].present? && params[:email].present? && params[:file_name].present?
       cookies.signed[:name] = params[:name]
       cookies.signed[:email] = params[:email]
-      download_image
+      @file_name = params[:file_name]
+      subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
+      redirect_to preview_path
     else
       redirect_to root_path
     end
   end
 
-  def download_image
+  def download
     if params[:file_name].present?
       file_name = params[:file_name]
       if File.exist? "#{Rails.root}/public/content/#{file_name}"
         send_file "#{Rails.root}/public/content/#{file_name}"
       else
-        redirect_to root_path
+        flash[:error] = "File not found."
+        redirect_to preview_path
       end
     else
-      redirect_to root_path
+      flash[:error] = "Invalid request."
+      redirect_to preview_path
     end
   end
 
@@ -68,5 +73,18 @@ class ChargesController < ApplicationController
     def find_widget(widget_id)
       # widget_id = params[:widget]
       widget = widgets[widget_id.to_sym]
+    end
+
+    def setup_mcapi
+      @mc = Mailchimp::API.new(MAILCHIMP_API_KEY)
+    end
+
+    def subscribe_to_list(list_id, email, name)
+      begin
+        @mc.lists.subscribe(list_id, { email: email}, merge_vars: { FIRSTNAME: name, STATUS: 'Subscribed' })
+        flash[:success] = 'To complete the subscription process, please click the link in the email we just sent you.'
+      rescue Mailchimp::ListDoesNotExistError
+        flash[:error] = "The list could not be found"
+      end
     end
 end
