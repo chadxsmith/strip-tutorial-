@@ -24,6 +24,7 @@ class ChargesController < ApplicationController
     end
   end
 
+  # check if cookie exists
   def get_cookies
     if cookies.signed[:name].present? && cookies.signed[:email].present?
       render json: { allow: true, name: cookies.signed[:name], email: cookies.signed[:email] }
@@ -32,6 +33,7 @@ class ChargesController < ApplicationController
     end
   end
 
+  # Set cookies and subscribe to mailchimp list
   def subscribe
     if params[:name].present? && params[:email].present? && params[:file_name].present?
       cookies.signed[:name] = params[:name]
@@ -44,6 +46,7 @@ class ChargesController < ApplicationController
     end
   end
 
+  # Download file
   def download
     if params[:file_name].present?
       file_name = params[:file_name]
@@ -79,6 +82,7 @@ class ChargesController < ApplicationController
       @mc = Mailchimp::API.new(MAILCHIMP_API_KEY)
     end
 
+    # subscribe to mailchimp list
     def subscribe_to_list(list_id, email, name)
       begin
         @mc.lists.subscribe(list_id, { email: email}, merge_vars: { FIRSTNAME: name, STATUS: 'Subscribed' })

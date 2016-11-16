@@ -55,15 +55,18 @@ $(".navigation--hamburger").click(function(){
 
 }
 )
+    // Click event on image
     $(".img-download").click(function () {
         show_popup(this);
     });
 
+    //Click event on download button
     $(".btn--download").click(function () {
         element = $(this).parent().parent().children('img');
         show_popup(element);
     });
 
+    // Show subscribe popup if cookie is not set, else submit the popup form
     function show_popup (element) {
         file_name = $(element).data('file-name');
         $("#file_name").val(file_name);
