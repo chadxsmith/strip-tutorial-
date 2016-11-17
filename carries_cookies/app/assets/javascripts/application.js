@@ -55,9 +55,43 @@ $(".navigation--hamburger").click(function(){
 
 }
 )
+    // Click event on image
+    $(".img-download").click(function () {
+        show_popup(this);
+    });
 
+    //Click event on download button
+    $(".btn--download").click(function () {
+        element = $(this).parent().parent().children('img');
+        show_popup(element);
+    });
+
+    // Show subscribe popup if cookie is not set, else submit the popup form
+    function show_popup (element) {
+        file_name = $(element).data('file-name');
+        $("#file_name").val(file_name);
+
+        $.ajax({
+            type: 'post',
+            url: 'preview/get_cookies',
+            success: function (data) {
+                if(data.allow) {
+                    $("#name").val(data.name);
+                    $("#email").val(data.email);
+                    $("#popup").submit();
+                }
+                else
+                    $("#myModal").modal('show');
+            }
+        });
+    }
+
+    $("#popup").submit(function (e) {
+        $("#myModal").modal('hide');
+    });
 
 //Move a hover
+
 $(".test1").fancybox({
     // href: "http://3.bp.blogspot.com/_167-sL7Cczk/TBiMz6jdtYI/AAAAAAAABcs/JxqC2vCIFa4/s1600/cute-puppy-dog-wallpapers.jpg"
     href: "assets/glow.gif"
@@ -66,7 +100,7 @@ $(".test1").fancybox({
 $(".test1").mouseover(function() {
 
     $(this).click();
-    // $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
+//     $("#fancybox-overlay").remove(); //remove the overlay so you can close when hover off.
 // }, function() {
 //     $.fancybox.close();
 
@@ -77,7 +111,7 @@ $(".test1").mouseleave(function(){
    $.fancybox.close()
 })
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -210,7 +244,6 @@ $('#privacy_footer').click(function(){
    $('.bxslider').bxSlider({
   	auto: true
   });
-
 });
 
 
