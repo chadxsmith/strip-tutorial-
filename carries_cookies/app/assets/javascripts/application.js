@@ -71,6 +71,10 @@ $(".navigation--hamburger").click(function(){
         file_name = $(element).data('file-name');
         $("#file_name").val(file_name);
 
+        // Note: Added this line just to test the popup showing up to style
+         $("#myModal").modal('show');
+
+         
         $.ajax({
             type: 'post',
             url: 'preview/get_cookies',
