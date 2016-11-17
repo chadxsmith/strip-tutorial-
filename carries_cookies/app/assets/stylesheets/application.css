@@ -24,24 +24,24 @@
 
 
 .container-alt{
-	margin-top: 30%;
+	margin-top: 336px;
 }
 .container-alt2{
-	margin-top: 25%;
+	margin-top: 134px;
 }
 
 .viewport-1
 {
   background-size: cover;
   background-image: url('https://static1.squarespace.com/static/55804fd8e4b0a8ed7eb3c3b4/565cd0b6e4b04e87711c8f3a/565cd14be4b08c62b9f0a079/1448923501059/cvmptr-30.jpg?format=1000w');
-  height: 100vh;
+  height: 616px;
 }
 
 .viewport-2
 {
  
   background-image: url('https://static1.squarespace.com/static/55804fd8e4b0a8ed7eb3c3b4/565cd0b6e4b04e87711c8f3a/565cd105e4b04e87711c97cc/1448923434585/cvmptr-23.jpg?format=1000w');
-    height: 90vh;
+    height: 416px;
     background-size: 100%;
     background-position: 1523%;
 
@@ -67,6 +67,7 @@
     top: -163px;
     width: 206px !important;
     display: default;
+    left: 1px;
 }
 
 .btn--monthlyUpdates{
@@ -935,6 +936,10 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 
 @media (min-width : 9px) and (max-width : 1040px) {
 
+.container-alt2{
+	margin-top: -41px;
+}
+
 .content-grouper--last{
 	position: relative;
 	top:-98px;
@@ -950,7 +955,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
     margin-left: 35px;
 }
 .btn--download{
-	left: 12px;
+	left: 13px;
 }
 .viewport-2{
 	 background-size: fixed;
@@ -964,7 +969,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 }
 
 .container-alt{
-	margin-top: -20%;
+	margin-top: -21px;
 }
 
 .cd-pricing-features li {
