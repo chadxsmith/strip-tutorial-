@@ -998,7 +998,7 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
     margin-left: 35px;
 }
 .btn--download{
-	left: 13px;
+	    margin-left: 42px !important;
 }
 .viewport-2{
 	 background-size: fixed;

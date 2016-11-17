@@ -19,7 +19,11 @@
         <div class="row navigation">
 
               <div class="col-md-5">
-                <img class="logo" src="assets/logo.png">
+
+                <%= link_to root_path do %>
+                     <%= image_tag "logo.png", class: "logo" %>
+                  <% end %>
+
               </div> <!-- end of col-md-12 -->
 
 
