@@ -983,22 +983,23 @@ p, ul, li, h1, h2, h3, h4, h5, h6 {
 	margin-top: -41px;
 }
 
-.content-grouper--last{
+/*.content-grouper--last{
 	position: relative;
 	top:-98px;
-}
+}*/
 .content-grouper--secondtoLast{
-    position: relative;
-    top: -48px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
 
-.btn--download--hidden{
+/*.btn--download--hidden{
 	display: inherit !important;
 	position: relative;
     margin-left: 35px;
-}
+}*/
 .btn--download{
-	    margin-left: 42px !important;
+  left:11px;
+  margin-left: 0px !important;
 }
 .viewport-2{
 	 background-size: fixed;
