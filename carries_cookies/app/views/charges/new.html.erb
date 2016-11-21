@@ -30,6 +30,7 @@
                   <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
                   <% end %>
 
+                  <% content_for(:stripe_header) do %>
                   <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
                          
                           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -41,7 +42,8 @@
                             colorChange()
                           /* some function here*/}})
                   </script>
-                                  
+                  <% end %>
+
             <% end %>                       
      </div>
 

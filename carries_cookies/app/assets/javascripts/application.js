@@ -13,6 +13,7 @@
 //= require jquery
 //= require fancybox
 //= require jquery_ujs
+//= require jquery.validate
 //= require turbolinks
 //= require_tree .
 
