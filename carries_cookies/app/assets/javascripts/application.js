@@ -18,23 +18,24 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('page:change ready', function() {
 
-
+    $.fancybox.init()
 
     // Click event on image
     $(".img-download").click(function () {
-        show_popup(this);
+                show_popup(this);
     });
 
     //Click event on download button
     $(".btn--download").click(function () {
         element = $(this).parent().parent().children('img');
-        show_popup(element);
+        show_popup($(this).parent().siblings('.img-download'));
     });
 
     // Show subscribe popup if cookie is not set, else submit the popup form
     function show_popup (element) {
+      $("#popup").validate().resetForm();
         file_name = $(element).data('file-name');
         $("#file_name").val(file_name);
 
@@ -44,7 +45,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'post',
-            url: 'preview/get_cookies',
+            url: 'downloable/get_cookies',
             success: function (data) {
                 if(data.allow) {
                     $("#name").val(data.name);
@@ -58,7 +59,9 @@ $(document).ready(function() {
     }
 
     $("#popup").submit(function (e) {
-        $("#myModal").modal('hide');
+        if($(this).valid()){
+          $("#myModal").modal('hide');
+        }
     });
 
 //Move a hover
@@ -217,13 +220,6 @@ $('#privacy_footer').click(function(){
     pager: false
   });
 });
-
-$(document).on('page:load', function(){
-  $('.bxslider').bxSlider({
-    auto: true,
-    pager: false
-  });
-})
 
 function disappearElement(){
 
