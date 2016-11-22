@@ -44,7 +44,7 @@
              </div>  <!-- end of col-md-6 -->
 
              <div class='col-md-12'>
-                <!--     <img class="center-block illustration" src="assets/hero_v2.png"> -->
+                <!--     <img class="center-block illustration" src="/assets/hero_v2.png"> -->
 
              </div>
 
@@ -100,19 +100,19 @@
 
                               <div class="content-grouper">
                                 <!-- data-file-name attribute is the name of file to download -->
-                               <!--  <img class="img-curve img-download" data-file-name="content.jpg" src="assets/cvmptr-10.jpg"> -->
+                               <!--  <img class="img-curve img-download" data-file-name="content.jpg" src="/assets/cvmptr-10.jpg"> -->
 
                                 <picture class="img-download" data-file-name="content.jpg">
 
                                   <img class="img-curve" src="" alt="">
                                       <source class="img-curve"
                                         media="(min-width: 650px)"
-                                        srcset="assets/cvmptr-10.jpg">
+                                        srcset="/assets/cvmptr-10.jpg">
                                       <source class="img-curve"
                                         media="(min-width: 465px)"
-                                        srcset="assets/cvmptr-10_mobile.jpg">
+                                        srcset="/assets/cvmptr-10_mobile.jpg">
                                       <img class="img-curve"
-                                        srcset="assets/cvmptr-10_mobile.jpg"
+                                        srcset="/assets/cvmptr-10_mobile.jpg"
                                         alt="a cute kitten">
                                     </img>
 
@@ -142,19 +142,19 @@
 
                               <div class="content-grouper content-grouper--secondtoLast">
                                 <!-- data-file-name attribute is the name of file to download -->
-           <!--                       <img class="img-curve img-download" data-file-name="content.jpg" src="assets/cvmptr-22.jpg"> -->
+           <!--                       <img class="img-curve img-download" data-file-name="content.jpg" src="/assets/cvmptr-22.jpg"> -->
 
                                 <picture class="img-download" data-file-name="content.jpg">
 
                                   <img class="img-curve" src="" alt="">
                                       <source class="img-curve"
                                         media="(min-width: 650px)"
-                                        srcset="assets/cvmptr-22.jpg">
+                                        srcset="/assets/cvmptr-22.jpg">
                                       <source class="img-curve"
                                         media="(min-width: 465px)"
-                                        srcset="assets/cvmptr-22_mobile.jpg">
+                                        srcset="/assets/cvmptr-22_mobile.jpg">
                                       <img class="img-curve"
-                                        srcset="assets/cvmptr-22_mobile.jpg"
+                                        srcset="/assets/cvmptr-22_mobile.jpg"
                                         alt="a cute kitten">
                                     </img>
 
@@ -180,19 +180,19 @@
 
                               <div class="content-grouper content-grouper--last">
                                 <!-- data-file-name attribute is the name of file to download -->
-                               <!--  <img class="img-curve img-download" data-file-name="content.jpg" src="assets/cvmptr-43.jpg"> -->
+                               <!--  <img class="img-curve img-download" data-file-name="content.jpg" src="/assets/cvmptr-43.jpg"> -->
 
                               <picture class="img-download" data-file-name="content.jpg">
 
                                   <img class="img-curve" src="" alt="">
                                       <source class="img-curve"
                                         media="(min-width: 650px)"
-                                        srcset="assets/cvmptr-43.jpg">
+                                        srcset="/assets/cvmptr-43.jpg">
                                       <source class="img-curve"
                                         media="(min-width: 465px)"
-                                        srcset="assets/cvmptr-43_mobile.jpg">
+                                        srcset="/assets/cvmptr-43_mobile.jpg">
                                       <img class="img-curve"
-                                        srcset="assets/cvmptr-43_mobile.jpg"
+                                        srcset="/assets/cvmptr-43_mobile.jpg"
                                         alt="a cute kitten">
                                     </img>
 
@@ -461,7 +461,7 @@
 
     // Redirect to download link
     <% if @file_name %>
-      window.location.href = "<%= "#{preview_download_url}?file_name=#{@file_name}" %>"
+      window.location.href = "<%= "#{downloable_download_url}?file_name=#{@file_name}" %>"
     <% end %>
 
     $("#popup").validate({

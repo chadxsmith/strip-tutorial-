@@ -24,13 +24,13 @@ $(document).on('page:change ready', function() {
 
     // Click event on image
     $(".img-download").click(function () {
-        show_popup(this);
+                show_popup(this);
     });
 
     //Click event on download button
     $(".btn--download").click(function () {
         element = $(this).parent().parent().children('img');
-        show_popup(element);
+        show_popup($(this).parent().siblings('.img-download'));
     });
 
     // Show subscribe popup if cookie is not set, else submit the popup form
