@@ -105,14 +105,14 @@
                                 <picture class="img-download" data-file-name="content.jpg">
 
                                   <img class="img-curve" src="" alt="">
-                                      <source class="img-curve" 
+                                      <source class="img-curve"
                                         media="(min-width: 650px)"
                                         srcset="assets/cvmptr-10.jpg">
-                                      <source class="img-curve" 
+                                      <source class="img-curve"
                                         media="(min-width: 465px)"
                                         srcset="assets/cvmptr-10_mobile.jpg">
-                                      <img class="img-curve" 
-                                        srcset="assets/cvmptr-10_mobile.jpg" 
+                                      <img class="img-curve"
+                                        srcset="assets/cvmptr-10_mobile.jpg"
                                         alt="a cute kitten">
                                     </img>
 
@@ -147,17 +147,17 @@
                                 <picture class="img-download" data-file-name="content.jpg">
 
                                   <img class="img-curve" src="" alt="">
-                                      <source class="img-curve" 
+                                      <source class="img-curve"
                                         media="(min-width: 650px)"
                                         srcset="assets/cvmptr-22.jpg">
-                                      <source class="img-curve" 
+                                      <source class="img-curve"
                                         media="(min-width: 465px)"
                                         srcset="assets/cvmptr-22_mobile.jpg">
-                                      <img class="img-curve" 
-                                        srcset="assets/cvmptr-22_mobile.jpg" 
+                                      <img class="img-curve"
+                                        srcset="assets/cvmptr-22_mobile.jpg"
                                         alt="a cute kitten">
                                     </img>
-                                    
+
                                   </picture>
 
                                  <h3 class="step step_alt">
@@ -185,24 +185,24 @@
                               <picture class="img-download" data-file-name="content.jpg">
 
                                   <img class="img-curve" src="" alt="">
-                                      <source class="img-curve" 
+                                      <source class="img-curve"
                                         media="(min-width: 650px)"
                                         srcset="assets/cvmptr-43.jpg">
-                                      <source class="img-curve" 
+                                      <source class="img-curve"
                                         media="(min-width: 465px)"
                                         srcset="assets/cvmptr-43_mobile.jpg">
-                                      <img class="img-curve" 
-                                        srcset="assets/cvmptr-43_mobile.jpg" 
+                                      <img class="img-curve"
+                                        srcset="assets/cvmptr-43_mobile.jpg"
                                         alt="a cute kitten">
                                     </img>
-                                    
-                                  </picture>
+
+                                </picture>
 
 
                                 <h3 class="step step_alt">
-                            <span class="label">September 2016</span>
-                              <button type="button" class="btn btn--download btn--download--hidden">Download</button>
-                          </h3>
+                                  <span class="label">September 2016</span>
+                                  <button type="button" class="btn btn--download btn--download--hidden">Download</button>
+                                </h3>
 
                               </div>
 
@@ -398,9 +398,9 @@
              <div class="row">
 
           <div class="col-md-12">
-              
+
                 <p class="modal-header--notBootstrap">Stay up-to-date on new monthly free mixes, discounts, and early access to new themes</p>
-                
+
             </div>
 
       </div>
@@ -408,16 +408,16 @@
        </div>
 
 
-       
+
        <div class="modal-body row">
 
-      
+
 
 
 
         <div class="col-md-6">
           <div class="viewport-3">
-            
+
           </div>
 
         </div> <!-- end of col-md-4 -->
@@ -426,7 +426,7 @@
 
           <div class="col-md-6">
 
-               <form id="popup" action="preview/subscribe">
+               <form id="popup" action="downloable/subscribe">
                  <div class="form-group">
                   <!--  <label for="formGroupExampleInput">Name*</label> -->
                    <input type="text" id="name" name="name" class="form-control" placeholder="Name">
@@ -447,15 +447,17 @@
 
 
        </div> <!-- end of modal-body row -->
-     
+
 
      </div>
    </div>
  </div>
   <!-- Subscribe Modal End -->
 
- <script>
-  $(document).ready(function () {
+<% content_for(:downloable_scripts) do %>
+
+ <script type="text/javascript">
+  $(document).on("page:load ready", function () {
 
     // Redirect to download link
     <% if @file_name %>
@@ -482,6 +484,13 @@
         email: "Please enter a valid email address"
       }
     });
+
+    $('.img-download').siblings('h3').find('button').hover(function(){
+      $(this).parent().siblings('.img-download').find('.img-curve').css('opacity', '1.0');
+    }, function(){
+      $(this).parent().siblings('.img-download').find('.img-curve').css('opacity', '0.7');
+    })
   });
 
  </script>
+<% end %>

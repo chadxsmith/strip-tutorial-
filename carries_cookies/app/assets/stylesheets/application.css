@@ -22,6 +22,14 @@
   left: 47px !important;
 }*/
 
+.img-download:hover + h3 button{
+  display: inline !important;
+}
+
+.img-download + h3 button:hover{
+  display: inline !important;
+}
+
 .bx-wrapper
 {
     -moz-box-shadow: none !important;
