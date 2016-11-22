@@ -14,48 +14,14 @@
 //= require fancybox
 //= require jquery_ujs
 //= require jquery.validate
+//= require bxslider
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
 
 
- $(".img-curve").hover(function(){
-  console.log(" i just got hovered on!!")
 
-  var parent = $(this).parents(".content-grouper")
-  var image = $(this, parent)
-  var buttonDownload = $(".btn--download", parent)
-
-  $(image).toggleClass("")
-  $(buttonDownload).toggleClass("btn--download--hidden")
-  // $(".btn--download").not(buttonDownload).toggleClass("btn--download--hidden")
-
-
- }) 
-
-console.log("application js is running")
-
-// $(".logo").click(function() { 
-//             window.location.reload();
-//             console.log("logo's been clicked!!!!")
-//  });
-
-$(".navigation--links li a").click(function(){
-    var link = $(this)
-    var parent = $(link).parents("navigation--links")
-    $(link, parent).css("text-decoration", "underline")
-    $(".navigation--links li a").not(link).css("text-decoration", "none")
-
-})
-
-$(".navigation--hamburger").click(function(){
-  
-   $(".navigation--hamburger--dropdown--hidden").toggleClass("navigation--hamburger--dropdown")
-   $(".navigation--hamburger--dropdown--links--hidden").toggleClass("navigation--hamburger--dropdown--links")
-
-}
-)
     // Click event on image
     $(".img-download").click(function () {
         show_popup(this);
@@ -75,7 +41,7 @@ $(".navigation--hamburger").click(function(){
         // Note: Added this line just to test the popup showing up to style
          $("#myModal").modal('show');
 
-         
+
         $.ajax({
             type: 'post',
             url: 'preview/get_cookies',
@@ -247,10 +213,17 @@ $('#privacy_footer').click(function(){
  });
 
    $('.bxslider').bxSlider({
-  	auto: true
+  	auto: true,
+    pager: false
   });
 });
 
+$(document).on('page:load', function(){
+  $('.bxslider').bxSlider({
+    auto: true,
+    pager: false
+  });
+})
 
 function disappearElement(){
 

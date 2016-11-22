@@ -5,11 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 
-group :production do 
+group :production do
 	gem 'pg'
 end
 
-group :development do 
+group :development do
 	gem 'sqlite3'
 end
 
@@ -62,10 +62,12 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'bootstrap-sass', '~>2.3.1.0' 
+gem 'bootstrap-sass', '~>2.3.1.0'
 
 gem 'rails_12factor', group: :production
 
 gem 'mailchimp-api', require: 'mailchimp'
 
 gem 'jquery-validation-rails'
+
+gem 'bxslider-rails'
