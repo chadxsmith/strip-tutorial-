@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
   before_action :setup_stripe_service, only: :create
   before_action :setup_mcapi, only: :subscribe
-  
+
   def create
     widget = find_widget(params[:widget])
     token = params[:stripeToken]
@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
         redirect_to root_path
       end
     else
-      
+
     end
   end
 
@@ -54,25 +54,25 @@ class ChargesController < ApplicationController
         send_file "#{Rails.root}/public/content/#{file_name}"
       else
         flash[:error] = "File not found."
-        redirect_to preview_path
+        redirect_to downloable_path
       end
     else
       flash[:error] = "Invalid request."
-      redirect_to preview_path
+      redirect_to downloable_path
     end
   end
 
   def popup
     render "popup"
   end
-  
+
   #def new and other actions
-  
+
   private
     def setup_stripe_service
       @stripe_service = StripeService.new
     end
-    
+
     def find_widget(widget_id)
       # widget_id = params[:widget]
       widget = widgets[widget_id.to_sym]
