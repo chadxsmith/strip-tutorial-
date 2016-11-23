@@ -22,16 +22,24 @@
   left: 47px !important;
 }*/
 
-.img-download:hover + h3 button{
+.btn--download{
+  display: none;
+}
+
+.img-download:hover button{
   display: inline !important;
 }
 
-.img-download:hover .img-curve{
-  opacity: 1.0 !important;
+.img-download:hover button{
+  position: absolute;
+  top: 0px;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 
-.img-download + h3 button:hover{
-  display: inline !important;
+.img-download .btn--download:hover ~ img {
+  opacity: 1.0
 }
 
 .bx-wrapper

@@ -38,8 +38,8 @@ class ChargesController < ApplicationController
     if params[:name].present? && params[:email].present? && params[:file_name].present?
       cookies.signed[:name] = params[:name]
       cookies.signed[:email] = params[:email]
-      @file_name = params[:file_name]
       subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
+      @file_name = params[:file_name]
       render :preview
     else
       redirect_to root_path
@@ -49,16 +49,15 @@ class ChargesController < ApplicationController
   # Download file
   def download
     if params[:file_name].present?
-      file_name = params[:file_name]
-      if File.exist? "#{Rails.root}/public/content/#{file_name}"
-        send_file "#{Rails.root}/public/content/#{file_name}"
+      if File.exist? "#{Rails.root}/public/content/#{params[:file_name]}"
+        send_file "#{Rails.root}/public/content/#{params[:file_name]}"
       else
         flash[:error] = "File not found."
-        redirect_to downloable_path
+        redirect_to root_path
       end
     else
       flash[:error] = "Invalid request."
-      redirect_to downloable_path
+      redirect_to root_path
     end
   end
 
@@ -79,24 +78,18 @@ class ChargesController < ApplicationController
     end
 
     def setup_mcapi
-      @mc = Mailchimp::API.new(MAILCHIMP_API_KEY)
+      @mc = Gibbon::Request.new(api_key: MAILCHIMP_API_KEY)
     end
 
     # subscribe to mailchimp list
     def subscribe_to_list(list_id, email, name)
+      Gibbon::Request.api_endpoint = "https://us6.api.mailchimp.com/3.0/"
       begin
-        @mc.lists.subscribe(list_id, { email: email}, merge_vars: { FIRSTNAME: name, STATUS: 'Subscribed' })
+        @mc.lists(list_id).members.
+          create(body: {email_address: email, status: "subscribed", merge_fields: {FNAME: name}})
         flash[:success] = 'To complete the subscription process, please click the link in the email we just sent you.'
-      rescue Mailchimp::ListAlreadySubscribedError
-        flash[:warning] = "#{email} is already subscribed to the list"
-      rescue Mailchimp::ListDoesNotExistError
-        flash[:error] = "The list could not be found"
-      rescue Mailchimp::Error => ex
-        if ex.message
-          flash[:warning] = ex.message
-        else
-          flash[:warning] = "An unknown error occurred"
-        end
+      rescue Gibbon::MailChimpError => e
+        flash[:warning] = e.message
       end
     end
 end

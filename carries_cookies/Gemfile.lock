@@ -63,12 +63,16 @@ GEM
     domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    excon (0.54.0)
     execjs (2.6.0)
     fancybox-rails (0.3.0)
       railties (>= 3.1.0)
+    faraday (0.10.0)
+      multipart-post (>= 1.2, < 3)
     figaro (1.0.0)
       thor (~> 0.14)
+    gibbon (2.2.4)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     http-cookie (1.0.3)
@@ -87,14 +91,12 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mailchimp-api (2.0.6)
-      excon (>= 0.16.0)
-      json (>= 1.7.7)
     method_source (0.8.2)
     mime-types (2.99.3)
     mini_portile (0.6.2)
     minitest (5.8.1)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     netrc (0.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -191,10 +193,10 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   fancybox-rails
   figaro
+  gibbon
   jbuilder (~> 2.0)
   jquery-rails
   jquery-validation-rails
-  mailchimp-api
   pg
   pry
   pry-byebug
