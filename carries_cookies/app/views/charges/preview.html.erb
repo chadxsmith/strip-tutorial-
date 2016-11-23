@@ -424,7 +424,7 @@
 
           <div class="col-md-6">
 
-                <%= form_tag(downloable_subscribe_path, method: "get", id: "popup") do %>
+                <%= form_tag(downloadables_subscribe_path, method: "get", id: "popup") do %>
                     <div class="form-group">
                     <!--  <label for="formGroupExampleInput">Name*</label> -->
                      <input type="text" id="name" name="name" class="form-control" placeholder="Name">
@@ -458,7 +458,7 @@
   $(document).on("ready", function () {
 
     <% if @file_name %>
-      window.location.href = "<%= "#{downloable_download_url}?file_name=#{@file_name}" %>"
+      window.location.href = "<%= "#{downloadables_download_url}?file_name=#{@file_name}" %>"
     <% end %>
 
     $("#popup").validate({

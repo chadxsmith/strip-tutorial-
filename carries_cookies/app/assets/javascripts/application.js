@@ -45,7 +45,7 @@ $(document).on('page:change ready', function() {
 
         $.ajax({
             type: 'post',
-            url: 'downloable/get_cookies',
+            url: 'downloadables/get_cookies',
             success: function (data) {
                 if(data.allow) {
                     $("#name").val(data.name);
