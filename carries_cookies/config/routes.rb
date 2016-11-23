@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
     root "charges#new", page: "home"
 
-    get "downloable", to: "charges#preview"
-    post "downloable/get_cookies", to: "charges#get_cookies"
-    get 'downloable/download', to: "charges#download"
-    get "downloable/popup", to: "charges#popup"
-    get "downloable/subscribe", to: "charges#subscribe"
+    get "downloadables", to: "charges#preview"
+    post "downloadables/get_cookies", to: "charges#get_cookies"
+    get 'downloadables/download', to: "charges#download"
+    get "downloadables/popup", to: "charges#popup"
+    get "downloadables/subscribe", to: "charges#subscribe"
 
     resources :charges, only: [:create, :new]
 
