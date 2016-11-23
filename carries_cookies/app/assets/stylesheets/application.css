@@ -26,6 +26,10 @@
   display: inline !important;
 }
 
+.img-download:hover .img-curve{
+  opacity: 1.0 !important;
+}
+
 .img-download + h3 button:hover{
   display: inline !important;
 }

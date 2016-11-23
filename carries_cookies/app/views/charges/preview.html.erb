@@ -487,8 +487,10 @@
 
     $('.img-download').siblings('h3').find('button').hover(function(){
       $(this).parent().siblings('.img-download').find('.img-curve').css('opacity', '1.0');
-    }, function(){
-      $(this).parent().siblings('.img-download').find('.img-curve').css('opacity', '0.7');
+    })
+
+    $('.img-download').mouseover(function(){
+      $(this).find('.img-curve').css('opacity', '0.7');
     })
   });
 
