@@ -22,6 +22,26 @@
   left: 47px !important;
 }*/
 
+.btn--download{
+  display: none;
+}
+
+.img-download:hover button{
+  display: inline !important;
+}
+
+.img-download:hover button{
+  position: absolute;
+  top: 0px;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.img-download .btn--download:hover ~ img {
+  opacity: 1.0
+}
+
 .bx-wrapper
 {
     -moz-box-shadow: none !important;

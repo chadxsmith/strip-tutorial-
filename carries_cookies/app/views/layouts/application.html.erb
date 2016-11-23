@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Colorful Collective</title>
- 
- 
+
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -27,11 +27,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <%= yield(:stripe_header) %>
+    <%= yield(:downloable_scripts) %>
 
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
- 
+
    <link rel="shortcut icon" href="assets/Icon-BoltBlue.png">
 
  <script>
@@ -51,9 +52,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MVWXDL');</script>
 
-   
+
 </head>
- 
+
 
 <body>
 
@@ -62,15 +63,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <%= flash[:error] %>
 </div>
 
- 
 
-              
-                  
+
+
+
                   <%= yield %>
 
 
 
-    
+
 
 
 </body>
