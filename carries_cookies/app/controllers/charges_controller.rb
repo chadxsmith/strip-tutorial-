@@ -1,6 +1,11 @@
 class ChargesController < ApplicationController
   before_action :setup_stripe_service, only: :create
   before_action :setup_mcapi, only: :subscribe
+  layout "layout_simple", only: [:convert_subscribers]
+
+  def convert_subscribers
+    render :subscribers_to_customers
+  end
 
   def create
     widget = find_widget(params[:widget])

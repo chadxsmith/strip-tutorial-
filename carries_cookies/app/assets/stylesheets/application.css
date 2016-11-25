@@ -22,6 +22,10 @@
   left: 47px !important;
 }*/
 
+.convert_subscribers{
+  background-color: #0C1F28;
+}
+
 .btn--download{
   display: none;
 }
