@@ -1,0 +1,77 @@
+<div class="convert_subscribers">
+  <div class='container'>
+    <div class="row navigation">
+      <div class="col-md-5">
+        <%= link_to root_path do %>
+        <%= image_tag "logo.png", class: "logo" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h1>
+        <strong class="main-title">Pick Your Plan</strong>
+      </h1>
+    </div>
+
+    <div class="text-center">
+      <h3>
+        <strong class="sub-title">Say goodbye to searching YouTube for visuals</strong>
+      </h1>
+    </div>
+
+<div class="cd-pricing-list row">
+    <% widgets_for_subscribers.each do |index, widget| %>
+    <%= content_tag :div, class: "cd-#{widget[:name].downcase} col-md-4" do %>
+     <header class="cd-pricing-header text-center">
+      <h2><%= widget[:name] %></h2>
+
+      <div class="cd-price">
+        <span class="cd-currency">$</span>
+        <span class="cd-value"><%= widget[:amount] / 100  %></span>
+        <span class="cd-duration">per month</span>
+      </div>
+    </header> <!-- .cd-pricing-header -->
+
+    <div class="cd-pricing-body">
+      <ul class="cd-pricing-features">
+        <li><em><%= widget[:extras] %></em> Minute Mix</li>
+        <li><em><%= widget[:categoriesCount] %></em><%= widget[:categoriesDescription] %></li>
+      </ul>
+    </div> <!-- .cd-pricing-body -->
+
+    <footer class="cd-pricing-footer text-center">
+      <div class="color_background">
+          <%= form_tag(charges_path(widget: index)) do %>
+
+                  <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
+                  <% end %>
+
+                  <% content_for(:stripe_header) do %>
+                  <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger"
+
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description=<%= widget[:name] %>
+                          panelLabel: "Subscribe"
+                          data-amount=<%= widget[:amount]%>
+                          data-locale="auto">
+                          handler.open({closed : function(){
+                            colorChange()
+                          /* some function here*/}})
+                  </script>
+                  <% end %>
+
+            <% end %>
+     </div>
+
+
+    </footer> <!-- .cd-pricing-footer -->
+
+
+
+    <% end %>
+<% end %>
+</div>
+
+  </div>
+</div>
