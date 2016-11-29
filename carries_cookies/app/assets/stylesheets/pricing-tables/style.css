@@ -13,6 +13,11 @@ Primary style
   font-size: 62.5%;
 }*/
 
+.stripe-button-el{
+  display: none !important;
+}
+
+
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -20,7 +20,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-
     $.fancybox.init()
 
     // Click event on image
