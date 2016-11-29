@@ -102,7 +102,8 @@
                                 <!-- data-file-name attribute is the name of file to download -->
                                <!--  <img class="img-curve img-download" data-file-name="content.jpg" src="/assets/cvmptr-10.jpg"> -->
 
-                                <picture class="img-download" data-file-name="content.jpg">
+                                <picture class="img-download"
+                                data-file-name= "November.mov" >
                                 <button type="button" class="btn btn--download">Download</button>
                                   <img class="img-curve" src="" alt="">
                                       <source class="img-curve"
@@ -144,7 +145,7 @@
                                 <!-- data-file-name attribute is the name of file to download -->
            <!--                       <img class="img-curve img-download" data-file-name="content.jpg" src="/assets/cvmptr-22.jpg"> -->
 
-                                <picture class="img-download" data-file-name="content.jpg">
+                                <picture class="img-download" data-file-name="October.mov">
                                 <button type="button" class="btn btn--download">Download</button>
                                   <img class="img-curve" src="" alt="">
                                       <source class="img-curve"
@@ -182,7 +183,7 @@
                                 <!-- data-file-name attribute is the name of file to download -->
                                <!--  <img class="img-curve img-download" data-file-name="content.jpg" src="/assets/cvmptr-43.jpg"> -->
 
-                              <picture class="img-download" data-file-name="content.jpg">
+                              <picture class="img-download" data-file-name="September.mov">
                                     <button type="button" class="btn btn--download">Download</button>
                                     <img class="img-curve" src="" alt="">
                                       <source class="img-curve"
@@ -452,14 +453,60 @@
  </div>
   <!-- Subscribe Modal End -->
 
-<% content_for(:downloable_scripts) do %>
 
  <script type="text/javascript">
-  $(document).on("ready", function () {
+  $(document).ready(function () {
+    $.get("<%= check_download_path %>").success(function(data){
+      if(data && data.file_url && data.file_url.length > 0){
+        window.location.href = decodeURIComponent(data.file_url)
+      }
+    })
 
     <% if @file_name %>
-      window.location.href = "<%= "#{downloadables_download_url}?file_name=#{@file_name}" %>"
+
+      //window.location.href = "<%= "#{downloadables_download_url}?file_name=#{@file_name}" %>"
     <% end %>
+
+    $(".img-download").click(function () {
+      show_popup(this);
+    });
+
+    //Click event on download button
+    $(".btn--download").click(function () {
+        element = $(this).parent().parent().children('img');
+        show_popup($(this).parent().siblings('.img-download'));
+    });
+
+    // Show subscribe popup if cookie is not set, else submit the popup form
+    function show_popup (element) {
+      $("#popup").validate().resetForm();
+        file_name = $(element).data('file-name');
+        $("#file_name").val(file_name);
+
+        // Note: Added this line just to test the popup showing up to style
+         $("#myModal").modal('show');
+
+
+        $.ajax({
+            type: 'post',
+            url: '/downloadables/get_cookies',
+            success: function (data) {
+                if(data.allow) {
+                    $("#name").val(data.name);
+                    $("#email").val(data.email);
+                    $("#popup").submit();
+                }
+                else
+                    $("#myModal").modal('show');
+            }
+        });
+    }
+
+    $("#popup").submit(function (e) {
+        if($(this).valid()){
+          $("#myModal").modal('hide');
+        }
+    });
 
     $("#popup").validate({
       // Specify validation rules
@@ -484,4 +531,3 @@
   });
 
  </script>
-<% end %>

@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
   before_action :setup_mcapi, only: :subscribe
   layout "layout_simple", only: [:convert_subscribers]
 
-  def convert_subscribers
+  def promotion01
     render :subscribers_to_customers
   end
 
@@ -44,18 +44,28 @@ class ChargesController < ApplicationController
       cookies.signed[:name] = params[:name]
       cookies.signed[:email] = params[:email]
       subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
-      @file_name = params[:file_name]
+      download_lnk = HTTParty.get("https://cloud-api.yandex.net/v1/disk/resources/download?path=#{params[:file_name]}",
+                                  headers: {"Authorization" => "AQAAAAAaOgbLAAOiG3E6dfuEXEntt--v8ic4zr4"})
+
+      session["need_download?"] = CGI.escape(download_lnk.parsed_response["href"])
       render :preview
     else
       redirect_to root_path
     end
   end
 
+  def download?
+    file_name = session["need_download?"]
+    session["need_download?"] = nil
+    render json: {file_url: file_name}
+  end
+
+
   # Download file
   def download
     if params[:file_name].present?
       if File.exist? "#{Rails.root}/public/content/#{params[:file_name]}"
-        send_file "#{Rails.root}/public/content/#{params[:file_name]}"
+        send_file params[:file_name]
       else
         flash[:error] = "File not found."
         redirect_to root_path

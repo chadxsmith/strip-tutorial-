@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     get 'downloadables/download', to: "charges#download"
     get "downloadables/popup", to: "charges#popup"
     get "downloadables/subscribe", to: "charges#subscribe"
-    get "convert_subscribers", to: "charges#convert_subscribers"
+    get "promotion01", to: "charges#promotion01"
+    get "check_download", to: "charges#download?"
 
     resources :charges, only: [:create, :new]
 

@@ -11,58 +11,20 @@
 // about supported directives.
 //
 //= require jquery
-//= require fancybox
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.validate
+//= require fancybox
 //= require bxslider
 //= require turbolinks
 //= require_tree .
 
-$(document).on('page:change ready', function() {
+$(document).ready(function() {
 
     $.fancybox.init()
 
     // Click event on image
-    $(".img-download").click(function () {
-                show_popup(this);
-    });
 
-    //Click event on download button
-    $(".btn--download").click(function () {
-        element = $(this).parent().parent().children('img');
-        show_popup($(this).parent().siblings('.img-download'));
-    });
-
-    // Show subscribe popup if cookie is not set, else submit the popup form
-    function show_popup (element) {
-      $("#popup").validate().resetForm();
-        file_name = $(element).data('file-name');
-        $("#file_name").val(file_name);
-
-        // Note: Added this line just to test the popup showing up to style
-         $("#myModal").modal('show');
-
-
-        $.ajax({
-            type: 'post',
-            url: 'downloadables/get_cookies',
-            success: function (data) {
-                if(data.allow) {
-                    $("#name").val(data.name);
-                    $("#email").val(data.email);
-                    $("#popup").submit();
-                }
-                else
-                    $("#myModal").modal('show');
-            }
-        });
-    }
-
-    $("#popup").submit(function (e) {
-        if($(this).valid()){
-          $("#myModal").modal('hide');
-        }
-    });
 
 //Move a hover
 
