@@ -1,0 +1,108 @@
+.convert_subscribers{
+  background-color: #0C1F28;
+  height: 100%;
+}
+
+html{
+  height: 100%;
+}
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navigation{
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.container{
+  max-width: 1095px;
+}
+
+.main-title{
+  font-size: 70px;
+  color: #FAEBD7;
+}
+
+.sub-title{
+  font-size: 40px;
+  color: #FAEBD7;
+}
+
+.cd-pricing-features{
+  list-style: none;
+  padding: 0;
+}
+
+.cd-pricing-features li{
+  text-align: center;
+}
+
+.cd-select{
+  position: static;
+  color: #FFFFFF;
+  background-color: #999999 !important;
+  font-size: 1.4rem;
+  text-indent: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+  display: block;
+  padding: 1.7em 0;
+  height: 100%;
+  border: none;
+}
+
+.cd-popular button{
+  background-color: #02BDE1 !important
+}
+
+.cd-popular{
+  margin: 0 10px 0 10px;
+}
+
+.cd-pricing-list > div{
+  background-color: #EEEEEE;
+  padding: 0;
+  width: 32%;
+}
+
+.cd-pricing-features li {
+  width: 100%;
+  float: left;
+  font-size: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+}
+
+.cd-select:hover{
+  opacity: 0.9;
+}
+
+.cd-pricing-footer{
+  padding: 25px 0 0 0 !important;
+}
+
+.cd-pricing-header h2{
+  font-size: 1.8rem;
+  margin-bottom: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cd-pricing-header *{
+  color: #173d50 !important
+}

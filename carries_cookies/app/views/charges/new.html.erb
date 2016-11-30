@@ -4,7 +4,7 @@
               <div class="cd-pricing-container cd-has-margins">
 
                     <ul class="cd-pricing-list">
-                      <% widgets.each do |index, widget| %>
+  <% widgets.each do |index, widget| %>
     <%= content_tag :li, class: "cd-#{widget[:name].downcase}" do %>
      <header class="cd-pricing-header">
       <h2><%= widget[:name] %></h2>
@@ -24,31 +24,18 @@
     </div> <!-- .cd-pricing-body -->
 
     <footer class="cd-pricing-footer">
-      <div class="color_background">            
-          <%= form_tag(charges_path(widget: index)) do %> 
-                 
-                  <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
-                  <% end %>
-
-                  <script src="https://checkout.stripe.com/checkout.js" onload="disappearElement()" class="stripe-button stripeChanger" 
-                         
-                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                          data-description=<%= widget[:name] %>
-                          panelLabel: "Subscribe"
-                          data-amount=<%= widget[:amount]%>
-                          data-locale="auto">
-                          handler.open({closed : function(){
-                            colorChange()
-                          /* some function here*/}})
-                  </script>
-                                  
-            <% end %>                       
+      <div class="color_background">
+        <%= form_tag(charges_path(widget: index)) do %>
+          <div class="main_checkout_<%= index %>"></div>
+            <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
+          <% end %>
+        <% end %>
      </div>
 
 
     </footer> <!-- .cd-pricing-footer -->
 
-    
+
 
     <% end %>
 <% end %>
@@ -59,3 +46,26 @@
     </div><!-- end of purchase-section -->
 
 <%= render 'layouts/footer_partial' %>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    <% widgets.each do |index, widget| %>
+      $('iframe[src^="https://checkout.stripe.com"]').remove();
+      $('.main_checkout_<%= index%>').find(':not(.cd-select)').remove();
+      $('.main_checkout_<%= index%>').append('<script src="https://checkout.stripe.com/checkout.js"'
+      + ' class="stripe-button stripeChanger"'
+      + ' data-key="<%= Rails.configuration.stripe[:publishable_key] %>"'
+      + ' data-description=<%= widget[:name] %>'
+      + ' panelLabel: "Subscribe"'
+      + ' data-amount=<%= widget[:amount]%>'
+      + ' data-locale="auto">'
+      + ' handler.open({closed : function(){'
+      + ' colorChange()'
+      + ' }})'
+      + '<\/script>')
+    <% end %>
+  })
+
+
+</script>

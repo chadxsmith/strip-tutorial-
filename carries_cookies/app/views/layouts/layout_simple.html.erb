@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Colorful Collective</title>
+  <%= javascript_include_tag 'app_simple', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="UTF-8" />
+
+  <%= stylesheet_link_tag 'app_simple', media: 'all', 'data-turbolinks-track' => true %>
+  <%= yield(:stripe_header) %>
+
+</head>
+
+<body>
+<%= yield %>
+</body>
+</html>

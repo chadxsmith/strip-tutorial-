@@ -1,7 +1,12 @@
 class ChargesController < ApplicationController
   before_action :setup_stripe_service, only: :create
   before_action :setup_mcapi, only: :subscribe
-  
+  layout "layout_simple", only: [:convert_subscribers]
+
+  def promotion01
+    render :subscribers_to_customers
+  end
+
   def create
     widget = find_widget(params[:widget])
     token = params[:stripeToken]
@@ -20,7 +25,7 @@ class ChargesController < ApplicationController
         redirect_to root_path
       end
     else
-      
+
     end
   end
 
@@ -38,65 +43,68 @@ class ChargesController < ApplicationController
     if params[:name].present? && params[:email].present? && params[:file_name].present?
       cookies.signed[:name] = params[:name]
       cookies.signed[:email] = params[:email]
-      @file_name = params[:file_name]
       subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
+      download_lnk = HTTParty.get("https://cloud-api.yandex.net/v1/disk/resources/download?path=#{params[:file_name]}",
+                                  headers: {"Authorization" => "AQAAAAAaOgbLAAOiG3E6dfuEXEntt--v8ic4zr4"})
+
+      session["need_download?"] = CGI.escape(download_lnk.parsed_response["href"])
       render :preview
     else
       redirect_to root_path
     end
   end
 
+  def download?
+    file_name = session["need_download?"]
+    session["need_download?"] = nil
+    render json: {file_url: file_name}
+  end
+
+
   # Download file
   def download
     if params[:file_name].present?
-      file_name = params[:file_name]
-      if File.exist? "#{Rails.root}/public/content/#{file_name}"
-        send_file "#{Rails.root}/public/content/#{file_name}"
+      if File.exist? "#{Rails.root}/public/content/#{params[:file_name]}"
+        send_file params[:file_name]
       else
         flash[:error] = "File not found."
-        redirect_to preview_path
+        redirect_to root_path
       end
     else
       flash[:error] = "Invalid request."
-      redirect_to preview_path
+      redirect_to root_path
     end
   end
 
   def popup
     render "popup"
   end
-  
+
   #def new and other actions
-  
+
   private
     def setup_stripe_service
       @stripe_service = StripeService.new
     end
-    
+
     def find_widget(widget_id)
       # widget_id = params[:widget]
       widget = widgets[widget_id.to_sym]
     end
 
     def setup_mcapi
-      @mc = Mailchimp::API.new(MAILCHIMP_API_KEY)
+      @mc = Gibbon::Request.new(api_key: MAILCHIMP_API_KEY)
     end
 
     # subscribe to mailchimp list
     def subscribe_to_list(list_id, email, name)
+      Gibbon::Request.api_endpoint = "https://us6.api.mailchimp.com/3.0/"
       begin
-        @mc.lists.subscribe(list_id, { email: email}, merge_vars: { FIRSTNAME: name, STATUS: 'Subscribed' })
+        @mc.lists(list_id).members.
+          create(body: {email_address: email, status: "subscribed", merge_fields: {FNAME: name}})
         flash[:success] = 'To complete the subscription process, please click the link in the email we just sent you.'
-      rescue Mailchimp::ListAlreadySubscribedError
-        flash[:warning] = "#{email} is already subscribed to the list"
-      rescue Mailchimp::ListDoesNotExistError
-        flash[:error] = "The list could not be found"
-      rescue Mailchimp::Error => ex
-        if ex.message
-          flash[:warning] = ex.message
-        else
-          flash[:warning] = "An unknown error occurred"
-        end
+      rescue Gibbon::MailChimpError => e
+        flash[:warning] = e.message
       end
     end
 end

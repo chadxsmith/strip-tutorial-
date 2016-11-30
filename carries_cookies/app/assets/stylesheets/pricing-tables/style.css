@@ -1,4 +1,4 @@
-/* -------------------------------- 
+/* --------------------------------
 
 Primary style
 
@@ -12,6 +12,11 @@ Primary style
 /*html {
   font-size: 62.5%;
 }*/
+
+.stripe-button-el{
+  display: none !important;
+}
+
 
 html * {
   -webkit-font-smoothing: antialiased;
@@ -30,9 +35,9 @@ a {
   text-decoration: none;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main Components 
+Main Components
 
 -------------------------------- */
 .cd-header {
@@ -163,7 +168,7 @@ Main Components
     display: none;
   }
   .cd-has-margins .cd-pricing-list > li {
-    width: 32.3333333333%;
+    width: 32%;
     float: left;
     margin-right: 1.5%;
     border-radius: 4px 4px 6px 6px;

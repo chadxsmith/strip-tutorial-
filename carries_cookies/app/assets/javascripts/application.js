@@ -11,88 +11,19 @@
 // about supported directives.
 //
 //= require jquery
-//= require fancybox
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.validate
+//= require fancybox
+//= require bxslider
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
+    $.fancybox.init()
 
-
- $(".img-curve").hover(function(){
-  console.log(" i just got hovered on!!")
-
-  var parent = $(this).parents(".content-grouper")
-  var image = $(this, parent)
-  var buttonDownload = $(".btn--download", parent)
-
-  $(image).toggleClass("")
-  $(buttonDownload).toggleClass("btn--download--hidden")
-  // $(".btn--download").not(buttonDownload).toggleClass("btn--download--hidden")
-
-
- }) 
-
-console.log("application js is running")
-
-// $(".logo").click(function() { 
-//             window.location.reload();
-//             console.log("logo's been clicked!!!!")
-//  });
-
-$(".navigation--links li a").click(function(){
-    var link = $(this)
-    var parent = $(link).parents("navigation--links")
-    $(link, parent).css("text-decoration", "underline")
-    $(".navigation--links li a").not(link).css("text-decoration", "none")
-
-})
-
-$(".navigation--hamburger").click(function(){
-  
-   $(".navigation--hamburger--dropdown--hidden").toggleClass("navigation--hamburger--dropdown")
-   $(".navigation--hamburger--dropdown--links--hidden").toggleClass("navigation--hamburger--dropdown--links")
-
-}
-)
     // Click event on image
-    $(".img-download").click(function () {
-        show_popup(this);
-    });
 
-    //Click event on download button
-    $(".btn--download").click(function () {
-        element = $(this).parent().parent().children('img');
-        show_popup(element);
-    });
-
-    // Show subscribe popup if cookie is not set, else submit the popup form
-    function show_popup (element) {
-        file_name = $(element).data('file-name');
-        $("#file_name").val(file_name);
-
-        // Note: Added this line just to test the popup showing up to style
-         $("#myModal").modal('show');
-
-         
-        $.ajax({
-            type: 'post',
-            url: 'preview/get_cookies',
-            success: function (data) {
-                if(data.allow) {
-                    $("#name").val(data.name);
-                    $("#email").val(data.email);
-                    $("#popup").submit();
-                }
-                else
-                    $("#myModal").modal('show');
-            }
-        });
-    }
-
-    $("#popup").submit(function (e) {
-        $("#myModal").modal('hide');
-    });
 
 //Move a hover
 
@@ -246,10 +177,10 @@ $('#privacy_footer').click(function(){
  });
 
    $('.bxslider').bxSlider({
-  	auto: true
+  	auto: true,
+    pager: false
   });
 });
-
 
 function disappearElement(){
 
