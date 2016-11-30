@@ -43,6 +43,7 @@
     <footer class="cd-pricing-footer text-center">
       <div class="color_background">
           <%= form_tag(charges_path(widget: index)) do %>
+            <%= hidden_field_tag :promotion01 , "true_that" %>
             <div class="promo_check_out_<%= index %>">
               <%= content_tag :button, class: "cd-select cd-selectBlueish-#{widget[:name].downcase}" do %> Get Started
               <% end %>
