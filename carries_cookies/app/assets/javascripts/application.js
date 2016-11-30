@@ -15,9 +15,9 @@
 //= require jquery_ujs
 //= require jquery.validate
 //= require fancybox
+//= require_tree ./pricing-tables
 //= require bxslider
 //= require turbolinks
-//= require_tree .
 
 $(document).ready(function() {
     $.fancybox.init()
