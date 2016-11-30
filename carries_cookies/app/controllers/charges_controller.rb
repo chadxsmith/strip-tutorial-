@@ -45,7 +45,7 @@ class ChargesController < ApplicationController
       cookies.signed[:email] = params[:email]
       subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
       download_lnk = HTTParty.get("https://cloud-api.yandex.net/v1/disk/resources/download?path=#{params[:file_name]}",
-                                  headers: {"Authorization" => "AQAAAAAaOgbLAAOiG3E6dfuEXEntt--v8ic4zr4"})
+                                  headers: {"Authorization" => YANDEX_DISK_ACCESS_TOKEN})
 
       session["need_download?"] = CGI.escape(download_lnk.parsed_response["href"])
       render :preview
