@@ -83,27 +83,31 @@ class ChargesController < ApplicationController
   #def new and other actions
 
   private
-    def setup_stripe_service
-      @stripe_service = StripeService.new
-    end
 
-    def find_widget(widget_id)
-      # widget_id = params[:widget]
-      widget = widgets[widget_id.to_sym]
-    end
+  def setup_stripe_service
+    @stripe_service = StripeService.new
+  end
 
-    def setup_mcapi
-      @mc = Gibbon::Request.new(api_key: MAILCHIMP_API_KEY)
-    end
+  def find_widget(widget_id)
+    # widget_id = params[:widget]
+    widget = widgets[widget_id.to_sym]
+  end
 
-    # subscribe to mailchimp list
-    def subscribe_to_list(list_id, email, name)
-      begin
-        @mc.lists(list_id).members.
-          create(body: {email_address: email, status: "subscribed", merge_fields: {FNAME: name}})
-        flash[:success] = 'You\'re all set! Enjoy your mix!'
-      rescue Gibbon::MailChimpError => e
-        flash[:warning] = e.message
-      end
+  def setup_mcapi
+    @mc = Gibbon::Request.new(api_key: MAILCHIMP_API_KEY)
+  end
+
+  # subscribe to mailchimp list
+  def subscribe_to_list(list_id, email, name)
+    @mc.lists(list_id).members.
+      create(body: {email_address: email, status: "subscribed", merge_fields: {FNAME: name}})
+    flash[:success] = 'You\'re all set! Enjoy your mix!'
+  rescue Gibbon::MailChimpError => e
+    if e.title.casecmp("member exists") == 0
+      cookies.signed[:name] = name
+      cookies.signed[:email] = email
+    else
+      flash[:warning] = e.message
     end
+  end
 end
