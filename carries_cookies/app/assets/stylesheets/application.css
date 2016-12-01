@@ -289,7 +289,7 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2a900', endColorstr='#f5d76e',GradientType=1 ); /* IE6-9 */
 }
 .confirm-background {
-    background: url(/assets/Confirmation-Background.png) repeat;
+	background-color: #0c1f28;
     width: 100%;
     padding-top: 20%;
     padding-bottom: 30%;
@@ -309,9 +309,12 @@ body{
 }
 
 .headline_alt{
-	font-size: 41px;
-	font-weight: 300;
+	font-size: 42px;
+	font-weight: 700;
 	padding-bottom: 10px;
+	font-family: 'Roboto Slab', serif !important;
+	color: #faebd7;
+	 
 }
 
 .sub_headline_alt{
