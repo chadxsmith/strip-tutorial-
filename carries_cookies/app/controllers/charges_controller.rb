@@ -98,11 +98,10 @@ class ChargesController < ApplicationController
 
     # subscribe to mailchimp list
     def subscribe_to_list(list_id, email, name)
-      Gibbon::Request.api_endpoint = "https://us6.api.mailchimp.com/3.0/"
       begin
         @mc.lists(list_id).members.
           create(body: {email_address: email, status: "subscribed", merge_fields: {FNAME: name}})
-        flash[:success] = 'To complete the subscription process, please click the link in the email we just sent you.'
+        flash[:success] = 'You\'re all set! Enjoy your mix!'
       rescue Gibbon::MailChimpError => e
         flash[:warning] = e.message
       end
