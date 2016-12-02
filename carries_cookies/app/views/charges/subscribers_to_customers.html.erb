@@ -20,6 +20,12 @@
       </h1>
     </div>
 
+<% if flash[:error].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <div class="cd-pricing-list row">
     <% widgets_for_subscribers.each do |index, widget| %>
     <%= content_tag :div, class: "cd-#{widget[:name].downcase} col-md-4" do %>
@@ -50,12 +56,7 @@
             </div>
           <% end %>
      </div>
-
-
     </footer> <!-- .cd-pricing-footer -->
-
-
-
     <% end %>
 <% end %>
 </div>

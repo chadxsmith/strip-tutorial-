@@ -11,21 +11,20 @@ class ChargesController < ApplicationController
     widget = if params[:promotion01].present?
                widgets_for_subscribers[params[:widget].to_sym]
              else
-               widgets(params[:widget].to_sym)
+               widgets[params[:widget].to_sym]
              end
-    token = params[:stripeToken]
     email = params[:stripeEmail]
-    description = params[:stripeDescription]
 
     if widget
-      description = widget[:description]
       begin
-        raise Stripe::CardError, 'Customer already exists' if params[:promotion01].present? && customer_exists?(email)
-        customer = @stripe_service.create_customer(email, token, description)
+        if params[:promotion01].present? && customer_exists?(email)
+          raise Stripe::CardError.new('Customer already exists', nil, nil)
+        end
+        customer = @stripe_service.create_customer(email, params[:stripeToken], widget[:description])
         @stripe_service.charge_customer(customer.id, widget[:stripe_id], widget[:coupon_id])
       rescue Stripe::CardError => e
         flash[:error] = e.message
-        redirect_to root_path
+        redirect_to params[:promotion01].present? ? promotion01_path : root_path
       end
     end
   end
@@ -61,7 +60,6 @@ class ChargesController < ApplicationController
     render json: {file_url: file_name}
   end
 
-
   # Download file
   def download
     if params[:file_name].present?
@@ -81,11 +79,11 @@ class ChargesController < ApplicationController
     render "popup"
   end
 
-  #def new and other actions
+  # def new and other actions
 
   private
 
-  def customer_exists?(email, coupon)
+  def customer_exists?(email)
     Stripe::Customer.list.select { |c| c.email == email }.count > 0
   end
 

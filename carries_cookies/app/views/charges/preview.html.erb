@@ -72,6 +72,11 @@
               <%= flash[:warning] %>
             </div>
         <% end %>
+        <% if flash[:error].present? %>
+            <div class="alert alert-danger">
+              <%= flash[:error] %>
+            </div>
+        <% end %>
 
                 <h1  class="description">
                   <span class="header"></span>
