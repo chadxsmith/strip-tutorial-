@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   before_action :setup_stripe_service, only: :create
-  before_action :setup_mcapi, only: :subscribe
+  before_action :setup_mcapi, only: [:subscribe, :create]
   layout "layout_simple", only: [:promotion01]
 
   def promotion01
