@@ -22,6 +22,7 @@ class ChargesController < ApplicationController
         end
         customer = @stripe_service.create_customer(email, params[:stripeToken], widget[:description])
         @stripe_service.charge_customer(customer.id, widget[:stripe_id], widget[:coupon_id])
+        subscribe_to_list(MAILCHIMP_PURCHASE_LIST_ID, email, email)
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to params[:promotion01].present? ? promotion01_path : root_path
@@ -43,7 +44,7 @@ class ChargesController < ApplicationController
     if params[:name].present? && params[:email].present? && params[:file_name].present?
       cookies.signed[:name] = params[:name]
       cookies.signed[:email] = params[:email]
-      subscribe_to_list(MAILCHIMP_LIST_ID, params[:email], params[:name])
+      subscribe_to_list(MAILCHIMP_SUBSCRIBE_LIST_ID, params[:email], params[:name])
       download_lnk = HTTParty.get("https://cloud-api.yandex.net/v1/disk/resources/download?path=#{params[:file_name]}",
                                   headers: {"Authorization" => YANDEX_DISK_ACCESS_TOKEN})
 
