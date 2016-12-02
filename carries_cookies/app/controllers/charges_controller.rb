@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
     if widget
       begin
         if params[:promotion01].present? && customer_exists?(email)
-          raise Stripe::CardError.new('Customer already exists', nil, nil)
+          raise Stripe::CardError.new('Existing customers are not eligible for this deal.', nil, nil)
         end
         customer = @stripe_service.create_customer(email, params[:stripeToken], widget[:description])
         @stripe_service.charge_customer(customer.id, widget[:stripe_id], widget[:coupon_id])
