@@ -78,3 +78,5 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'httparty'
 
 gem 'jquery-turbolinks'
+
+gem 'dotenv-rails', :groups => [:development, :test]
