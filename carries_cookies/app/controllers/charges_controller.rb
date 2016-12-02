@@ -8,33 +8,34 @@ class ChargesController < ApplicationController
   end
 
   def create
-    widget = find_widget(params[:widget])
+    widget = if params[:promotion01].present?
+               widgets_for_subscribers[params[:widget].to_sym]
+             else
+               widgets(params[:widget].to_sym)
+             end
     token = params[:stripeToken]
     email = params[:stripeEmail]
     description = params[:stripeDescription]
 
     if widget
-      amount = widget[:amount]
       description = widget[:description]
       begin
-       customer = @stripe_service.create_customer(email, token, description)
-       charge = @stripe_service.charge_customer(customer.id, widget[:stripe_id])
-       # redirect_to {path you want to send the user to if payment was successful} if charge.paid
+        raise Stripe::CardError, 'Customer already exists' if params[:promotion01].present? && customer_exists?(email)
+        customer = @stripe_service.create_customer(email, token, description)
+        @stripe_service.charge_customer(customer.id, widget[:stripe_id], widget[:coupon_id])
       rescue Stripe::CardError => e
         flash[:error] = e.message
         redirect_to root_path
       end
-    else
-
     end
   end
 
   # check if cookie exists
   def get_cookies
     if cookies.signed[:name].present? && cookies.signed[:email].present?
-      render json: { allow: true, name: cookies.signed[:name], email: cookies.signed[:email] }
+      render json: {allow: true, name: cookies.signed[:name], email: cookies.signed[:email]}
     else
-      render json: { allow: false }
+      render json: {allow: false}
     end
   end
 
@@ -84,13 +85,12 @@ class ChargesController < ApplicationController
 
   private
 
-  def setup_stripe_service
-    @stripe_service = StripeService.new
+  def customer_exists?(email, coupon)
+    Stripe::Customer.list.select { |c| c.email == email }.count > 0
   end
 
-  def find_widget(widget_id)
-    # widget_id = params[:widget]
-    widget = widgets[widget_id.to_sym]
+  def setup_stripe_service
+    @stripe_service = StripeService.new
   end
 
   def setup_mcapi

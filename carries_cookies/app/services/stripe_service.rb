@@ -6,11 +6,10 @@ class StripeService
         :card  => token
       )
   end
-  
-  def charge_customer(customer_id, plan_id)
-    Stripe::Subscription.create(
-      :customer    => customer_id,
-      :plan => plan_id,
-    )
+
+  def charge_customer(customer_id, plan_id, coupon = nil)
+    subscribe_params = {customer: customer_id, plan: plan_id}
+    subscribe_params.merge!(coupon) if coupon.present?
+    Stripe::Subscription.create(subscribe_params)
   end
 end
